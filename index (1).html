@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Global Distribution House — Connecting Brands, Delivering Excellence</title>
+<meta name="description" content="Global Distribution House is a trusted distribution company based in Kushtia, Bangladesh, connecting leading brands with retailers nationwide.">
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0F172A;
+    --navy-deep:#0A0F1C;
+    --blue:#2563EB;
+    --blue-light:#3B82F6;
+    --orange:#F97316;
+    --orange-light:#FDBA74;
+    --white:#FFFFFF;
+    --offwhite:#F8FAFC;
+    --slate-on-dark:#94A3B8;
+    --slate-on-light:#475569;
+    --line-on-dark:rgba(148,163,184,0.18);
+    --line-on-light:rgba(15,23,42,0.10);
+    --font-display:'Space Grotesk', sans-serif;
+    --font-body:'Inter', sans-serif;
+    --font-mono:'IBM Plex Mono', monospace;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:var(--font-body);
+    background:var(--offwhite);
+    color:var(--navy);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  img{max-width:100%; display:block;}
+  a{color:inherit; text-decoration:none;}
+  ul{list-style:none;}
+  .container{max-width:1180px; margin:0 auto; padding:0 24px;}
+  .eyebrow{
+    font-family:var(--font-mono);
+    font-size:12px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--orange);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:14px;
+  }
+  .eyebrow::before{content:''; width:22px; height:1px; background:var(--orange);}
+  h1,h2,h3,h4{font-family:var(--font-display); font-weight:600; letter-spacing:-0.01em;}
+  h2.section-title{font-size:clamp(28px,4vw,42px); color:var(--navy); margin-bottom:16px;}
+  .section-lead{max-width:620px; color:var(--slate-on-light); font-size:16px;}
+  section{padding:100px 0;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:var(--font-body); font-weight:600; font-size:14.5px;
+    padding:14px 26px; border-radius:2px; cursor:pointer; border:1px solid transparent;
+    transition:transform .18s ease, background .18s ease, border-color .18s ease, color .18s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-orange{background:var(--orange); color:var(--white);}
+  .btn-orange:hover{background:#EA6A0C;}
+  .btn-outline-light{border-color:rgba(255,255,255,0.35); color:var(--white);}
+  .btn-outline-light:hover{border-color:var(--white); background:rgba(255,255,255,0.06);}
+  .btn-outline-dark{border-color:rgba(15,23,42,0.25); color:var(--navy);}
+  .btn-outline-dark:hover{border-color:var(--navy);}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:200;
+    background:rgba(10,15,28,0.82);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(255,255,255,0.06);
+  }
+  nav.container{display:flex; align-items:center; justify-content:space-between; height:78px;}
+  .brand{display:flex; align-items:center; gap:12px;}
+  .brand img{height:42px; width:42px; border-radius:8px;}
+  .brand-text{font-family:var(--font-display); color:var(--white); font-size:15px; line-height:1.2;}
+  .brand-text small{display:block; font-family:var(--font-mono); font-size:9.5px; letter-spacing:.1em; color:var(--slate-on-dark); text-transform:uppercase; margin-top:2px;}
+  .nav-links{display:flex; gap:32px; align-items:center;}
+  .nav-links a{font-size:14px; color:var(--slate-on-dark); font-weight:500; transition:color .15s ease;}
+  .nav-links a:hover{color:var(--white);}
+  .nav-cta{display:flex; align-items:center; gap:14px;}
+  .menu-toggle{display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; padding:6px;}
+  .menu-toggle span{width:24px; height:2px; background:var(--white);}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    background:radial-gradient(ellipse at 75% 20%, #142038 0%, var(--navy) 45%, var(--navy-deep) 100%);
+    padding:180px 0 0;
+    color:var(--white);
+    overflow:hidden;
+  }
+  .hero-grid{
+    position:absolute; inset:0;
+    background-image:linear-gradient(var(--line-on-dark) 1px, transparent 1px), linear-gradient(90deg, var(--line-on-dark) 1px, transparent 1px);
+    background-size:64px 64px;
+    mask-image:linear-gradient(to bottom, black, transparent 80%);
+    opacity:.5;
+  }
+  .hero-inner{position:relative; z-index:2; display:grid; grid-template-columns:1.15fr 0.85fr; gap:40px; align-items:end; padding-bottom:70px;}
+  .hero h1{font-size:clamp(38px,5.4vw,68px); line-height:1.04; margin-bottom:22px;}
+  .hero h1 span{color:var(--orange);}
+  .hero p.lede{font-size:17px; color:var(--slate-on-dark); max-width:520px; margin-bottom:34px;}
+  .hero-actions{display:flex; gap:16px; flex-wrap:wrap;}
+  .manifest{
+    font-family:var(--font-mono); font-size:12px; color:var(--slate-on-dark);
+    border:1px solid var(--line-on-dark); border-radius:6px; padding:20px;
+    background:rgba(255,255,255,0.02);
+  }
+  .manifest .row{display:flex; justify-content:space-between; padding:7px 0; border-bottom:1px dashed var(--line-on-dark);}
+  .manifest .row:last-child{border-bottom:none;}
+  .manifest .row b{color:var(--white); font-weight:600;}
+  .manifest .status{color:var(--orange);}
+
+  /* route ticker */
+  .route-track{position:relative; z-index:2; border-top:1px solid var(--line-on-dark); padding:22px 0; overflow:hidden;}
+  .route-line{display:flex; align-items:center; gap:26px; white-space:nowrap; animation:scrollRoute 26s linear infinite; width:max-content;}
+  .route-line span{font-family:var(--font-mono); font-size:12.5px; color:var(--slate-on-dark); display:flex; align-items:center; gap:10px;}
+  .route-line span b{color:var(--orange);}
+  .route-line .dot{width:5px; height:5px; border-radius:50%; background:var(--slate-on-dark); display:inline-block;}
+  @keyframes scrollRoute{from{transform:translateX(0);} to{transform:translateX(-50%);}}
+
+  /* ---------- ABOUT ---------- */
+  .about{background:var(--white);}
+  .about-grid{display:grid; grid-template-columns:1fr 0.9fr; gap:70px; align-items:center;}
+  .about-copy p{color:var(--slate-on-light); margin-bottom:16px; font-size:15.5px;}
+  .about-art{position:relative; aspect-ratio:1/1; border-radius:4px; background:linear-gradient(160deg,var(--navy) 0%, #16233F 100%); display:flex; align-items:center; justify-content:center; overflow:hidden;}
+  .about-art svg{width:72%; height:72%;}
+
+  /* ---------- STATS ---------- */
+  .stats{background:var(--navy); color:var(--white);}
+  .stats-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line-on-dark); border:1px solid var(--line-on-dark);}
+  .stat-box{background:var(--navy); padding:40px 24px; text-align:center;}
+  .stat-num{font-family:var(--font-mono); font-size:clamp(34px,3.6vw,48px); color:var(--orange); font-weight:600;}
+  .stat-label{margin-top:10px; font-size:13px; color:var(--slate-on-dark); letter-spacing:.03em;}
+
+  /* ---------- BRANDS ---------- */
+  .brands{background:var(--offwhite);}
+  .brand-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:18px; margin-top:46px;}
+  .brand-card{
+    background:var(--white); border:1px solid var(--line-on-light); border-radius:6px; padding:26px 20px;
+    text-align:center; transition:border-color .2s ease, transform .2s ease;
+  }
+  .brand-card:hover{transform:translateY(-4px); border-color:var(--blue);}
+  .brand-badge{
+    width:56px; height:56px; margin:0 auto 16px; border-radius:50%;
+    background:linear-gradient(135deg,var(--blue),#1E40AF); color:var(--white);
+    display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-weight:700; font-size:18px;
+  }
+  .brand-card h4{font-size:15.5px; margin-bottom:4px;}
+  .brand-card span{font-family:var(--font-mono); font-size:11px; color:var(--orange); text-transform:uppercase; letter-spacing:.06em;}
+  .brand-note{margin-top:28px; font-size:13.5px; color:var(--slate-on-light); font-style:italic;}
+
+  /* ---------- SERVICES ---------- */
+  .services{background:var(--white);}
+  .service-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:22px; margin-top:46px;}
+  .service-card{padding:30px 22px; border:1px solid var(--line-on-light); border-radius:6px; transition:box-shadow .2s ease;}
+  .service-card:hover{box-shadow:0 12px 30px rgba(15,23,42,0.08);}
+  .service-icon{width:44px; height:44px; margin-bottom:20px;}
+  .service-card h4{font-size:16.5px; margin-bottom:8px;}
+  .service-card p{font-size:14px; color:var(--slate-on-light);}
+
+  /* ---------- NETWORK ---------- */
+  .network{background:var(--navy-deep); color:var(--white); position:relative;}
+  .network-wrap{display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;}
+  .network-copy p{color:var(--slate-on-dark); font-size:15.5px; margin-bottom:24px;}
+  .network-list{display:flex; flex-direction:column; gap:0;}
+  .network-list li{display:flex; align-items:center; gap:14px; padding:11px 0; border-bottom:1px solid var(--line-on-dark); font-family:var(--font-mono); font-size:13px; color:var(--slate-on-dark);}
+  .network-list li:last-child{border-bottom:none;}
+  .network-list .node{width:8px; height:8px; border-radius:50%; background:var(--blue-light); flex-shrink:0;}
+  .network-list .node.hub{background:var(--orange); box-shadow:0 0 0 4px rgba(249,115,22,0.18);}
+  .network-map{position:relative; aspect-ratio:4/3.4; border:1px solid var(--line-on-dark); border-radius:8px; background:rgba(255,255,255,0.02); overflow:hidden;}
+
+  /* ---------- WHY CHOOSE ---------- */
+  .why{background:var(--offwhite);}
+  .why-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:22px; margin-top:46px;}
+  .why-card{background:var(--white); border-radius:6px; padding:28px 22px; border-left:3px solid var(--orange);}
+  .why-card h4{font-size:15.5px; margin-bottom:8px; display:flex; align-items:center; gap:8px;}
+  .why-card p{font-size:13.8px; color:var(--slate-on-light);}
+
+  /* ---------- PARTNER FORM ---------- */
+  .partner{background:var(--navy); color:var(--white);}
+  .partner-wrap{display:grid; grid-template-columns:0.85fr 1.15fr; gap:60px;}
+  .partner-copy p{color:var(--slate-on-dark); margin-bottom:22px; font-size:15.5px;}
+  .partner-perks{display:flex; flex-direction:column; gap:14px;}
+  .partner-perks li{display:flex; gap:12px; font-size:14px; color:var(--slate-on-dark); align-items:flex-start;}
+  .partner-perks li b{color:var(--white);}
+  form.partner-form{background:rgba(255,255,255,0.03); border:1px solid var(--line-on-dark); border-radius:8px; padding:34px;}
+  .form-row{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;}
+  .field{display:flex; flex-direction:column; gap:7px;}
+  .field.full{grid-column:1/-1;}
+  .field label{font-size:12px; color:var(--slate-on-dark); font-family:var(--font-mono); letter-spacing:.04em;}
+  .field input, .field select, .field textarea{
+    background:rgba(255,255,255,0.04); border:1px solid var(--line-on-dark); border-radius:4px;
+    padding:11px 13px; color:var(--white); font-family:var(--font-body); font-size:14px; outline:none;
+  }
+  .field input::placeholder, .field textarea::placeholder{color:#5b6b85;}
+  .field input:focus, .field select:focus, .field textarea:focus{border-color:var(--orange);}
+  .field textarea{resize:vertical; min-height:90px;}
+  .form-note{margin-top:14px; font-size:12.5px; color:var(--slate-on-dark);}
+
+  /* ---------- GALLERY ---------- */
+  .gallery{background:var(--white);}
+  .gallery-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:46px;}
+  .gallery-tile{
+    aspect-ratio:4/3; border-radius:6px; position:relative; overflow:hidden;
+    display:flex; align-items:flex-end; padding:18px; color:var(--white);
+  }
+  .gallery-tile span{font-family:var(--font-mono); font-size:12px; letter-spacing:.04em; position:relative; z-index:2;}
+  .gallery-tile::after{content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(15,23,42,0) 40%, rgba(10,15,28,0.75) 100%);}
+  .gallery-tile svg{position:absolute; inset:0; margin:auto; width:38%; height:38%; opacity:.9;}
+  .g1{background:linear-gradient(135deg,#1E3A8A,#2563EB);}
+  .g2{background:linear-gradient(135deg,#0F172A,#334155);}
+  .g3{background:linear-gradient(135deg,#C2410C,#F97316);}
+  .g4{background:linear-gradient(135deg,#2563EB,#0EA5E9);}
+  .g5{background:linear-gradient(135deg,#334155,#0F172A);}
+  .g6{background:linear-gradient(135deg,#F97316,#FDBA74);}
+
+  /* ---------- TESTIMONIALS ---------- */
+  .testimonials{background:var(--offwhite);}
+  .test-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:46px;}
+  .test-card{background:var(--white); border-radius:6px; padding:32px; border:1px solid var(--line-on-light);}
+  .test-card .quote{font-family:var(--font-display); font-size:19px; line-height:1.5; margin-bottom:20px;}
+  .test-card .who{font-family:var(--font-mono); font-size:12px; color:var(--orange); text-transform:uppercase; letter-spacing:.05em;}
+
+  /* ---------- NEWS ---------- */
+  .news{background:var(--white);}
+  .news-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:46px;}
+  .news-card{border:1px solid var(--line-on-light); border-radius:6px; padding:26px; transition:border-color .2s ease;}
+  .news-card:hover{border-color:var(--orange);}
+  .news-tag{font-family:var(--font-mono); font-size:11px; color:var(--blue); text-transform:uppercase; letter-spacing:.06em; margin-bottom:12px; display:block;}
+  .news-card h4{font-size:16px; margin-bottom:8px;}
+  .news-card p{font-size:13.5px; color:var(--slate-on-light);}
+
+  /* ---------- CONTACT ---------- */
+  .contact{background:var(--navy-deep); color:var(--white);}
+  .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:stretch;}
+  .contact-info{display:flex; flex-direction:column; justify-content:center; gap:22px;}
+  .contact-info h2{margin-bottom:4px;}
+  .contact-row{display:flex; align-items:center; gap:14px; font-size:14.5px; color:var(--slate-on-dark);}
+  .contact-row svg{width:19px; height:19px; flex-shrink:0; color:var(--orange);}
+  .contact-buttons{display:flex; gap:12px; margin-top:10px; flex-wrap:wrap;}
+  .icon-btn{
+    width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+    border:1px solid var(--line-on-dark); transition:border-color .2s ease, background .2s ease;
+  }
+  .icon-btn:hover{border-color:var(--orange); background:rgba(249,115,22,0.08);}
+  .icon-btn svg{width:19px; height:19px;}
+  .map-wrap{border-radius:8px; overflow:hidden; border:1px solid var(--line-on-dark); min-height:340px;}
+  .map-wrap iframe{width:100%; height:100%; min-height:340px; border:0; filter:grayscale(0.3) contrast(1.05);}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--navy); color:var(--slate-on-dark); padding:56px 0 26px;}
+  .footer-top{display:flex; justify-content:space-between; align-items:flex-start; padding-bottom:36px; border-bottom:1px solid var(--line-on-dark); flex-wrap:wrap; gap:30px;}
+  .footer-brand{display:flex; gap:12px; align-items:center;}
+  .footer-brand img{height:38px; width:38px; border-radius:7px;}
+  .footer-brand div{font-family:var(--font-display); color:var(--white); font-size:15px;}
+  .footer-brand small{display:block; font-size:12px; color:var(--slate-on-dark); margin-top:3px; font-family:var(--font-body);}
+  .footer-links{display:flex; gap:60px; flex-wrap:wrap;}
+  .footer-col h5{font-size:12px; color:var(--white); font-family:var(--font-mono); letter-spacing:.06em; text-transform:uppercase; margin-bottom:14px;}
+  .footer-col a{display:block; font-size:13.5px; margin-bottom:9px; color:var(--slate-on-dark);}
+  .footer-col a:hover{color:var(--orange);}
+  .footer-bottom{display:flex; justify-content:space-between; padding-top:24px; font-size:12.5px; flex-wrap:wrap; gap:10px;}
+
+  /* ---------- WHATSAPP FLOAT ---------- */
+  .wa-float{
+    position:fixed; bottom:26px; right:26px; z-index:300;
+    width:56px; height:56px; border-radius:50%; background:#25D366; display:flex; align-items:center; justify-content:center;
+    box-shadow:0 10px 24px rgba(0,0,0,0.25); transition:transform .2s ease;
+  }
+  .wa-float:hover{transform:scale(1.08);}
+  .wa-float svg{width:28px; height:28px; fill:#fff;}
+
+  /* reveal-on-scroll */
+  .reveal{opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  @media (prefers-reduced-motion: reduce){
+    .route-line{animation:none;}
+    .reveal{opacity:1; transform:none; transition:none;}
+    html{scroll-behavior:auto;}
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:960px){
+    .hero-inner{grid-template-columns:1fr;}
+    .manifest{display:none;}
+    .about-grid, .network-wrap, .partner-wrap, .contact-grid{grid-template-columns:1fr;}
+    .stats-grid, .brand-grid, .service-grid, .why-grid, .news-grid, .gallery-grid{grid-template-columns:repeat(2,1fr);}
+    .test-grid{grid-template-columns:1fr;}
+    .nav-links{display:none;}
+    .menu-toggle{display:flex;}
+    section{padding:70px 0;}
+  }
+  @media (max-width:560px){
+    .stats-grid, .brand-grid, .service-grid, .why-grid, .news-grid, .gallery-grid{grid-template-columns:1fr;}
+    .form-row{grid-template-columns:1fr;}
+    .footer-links{gap:34px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<header>
+  <nav class="container">
+    <a href="#top" class="brand">
+      <img src="logo.png" alt="Global Distribution House logo">
+      <span class="brand-text">GLOBAL DISTRIBUTION HOUSE<small>Connecting Brands, Delivering Excellence</small></span>
+    </a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#brands">Brands</a>
+      <a href="#services">Services</a>
+      <a href="#network">Network</a>
+      <a href="#partner">Partner</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="nav-cta">
+      <a href="#partner" class="btn btn-orange" style="padding:10px 20px; font-size:13.5px;">Become a Partner</a>
+    </div>
+    <button class="menu-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="top">
+  <div class="hero-grid"></div>
+  <div class="container hero-inner">
+    <div class="reveal in">
+      <div class="eyebrow">Panti · Kushtia · Bangladesh</div>
+      <h1>Connecting Brands,<br><span>Delivering Excellence.</span></h1>
+      <p class="lede">We bridge leading brands with retailers through a trusted, efficient distribution network — ensuring timely delivery and long-term business partnerships across Bangladesh.</p>
+      <div class="hero-actions">
+        <a href="#partner" class="btn btn-orange">Become a Partner</a>
+        <a href="#contact" class="btn btn-outline-light">Contact Us</a>
+      </div>
+    </div>
+    <div class="manifest reveal in">
+      <div class="row"><span>DISPATCH ORIGIN</span><b>KUSHTIA HUB</b></div>
+      <div class="row"><span>ACTIVE BRAND PARTNERS</span><b>20+</b></div>
+      <div class="row"><span>RETAIL DESTINATIONS</span><b>500+</b></div>
+      <div class="row"><span>MONTHLY DELIVERIES</span><b>50,000+</b></div>
+      <div class="row"><span>NETWORK STATUS</span><b class="status">● OPERATING</b></div>
+    </div>
+  </div>
+
+  <div class="route-track">
+    <div class="route-line" id="routeLine"></div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="about" id="about">
+  <div class="container about-grid">
+    <div class="about-copy reveal">
+      <div class="eyebrow">Who We Are</div>
+      <h2 class="section-title">A trusted distribution partner, built on reliability</h2>
+      <p>GLOBAL DISTRIBUTION HOUSE is a trusted distribution company based in Kushtia, Bangladesh. We connect renowned brands with retailers through a reliable supply chain and efficient distribution network.</p>
+      <p>Our mission is to ensure timely delivery, quality service, and long-term business partnerships — proudly serving retailers and businesses across multiple regions of Bangladesh with professionalism, integrity, and excellence.</p>
+      <a href="#network" class="btn btn-outline-dark">See our network →</a>
+    </div>
+    <div class="about-art reveal">
+      <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="100" cy="100" r="70" stroke="#2563EB" stroke-width="1" opacity="0.4"/>
+        <circle cx="100" cy="100" r="46" stroke="#F97316" stroke-width="1" opacity="0.5"/>
+        <rect x="55" y="115" width="55" height="34" rx="2" fill="#2563EB"/>
+        <rect x="105" y="126" width="28" height="23" rx="2" fill="#1E40AF"/>
+        <circle cx="70" cy="152" r="6" fill="#0F172A" stroke="#F97316" stroke-width="2"/>
+        <circle cx="120" cy="152" r="6" fill="#0F172A" stroke="#F97316" stroke-width="2"/>
+        <path d="M20 100 H50 M150 100 H180 M100 20 V50 M100 150 V180" stroke="#94A3B8" stroke-width="1" stroke-dasharray="3 4"/>
+        <circle cx="20" cy="100" r="3" fill="#F97316"/>
+        <circle cx="180" cy="100" r="3" fill="#2563EB"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STATS ================= -->
+<section class="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-box reveal"><div class="stat-num" data-count="20">0</div><div class="stat-label">Brand Partners</div></div>
+      <div class="stat-box reveal"><div class="stat-num" data-count="500">0</div><div class="stat-label">Retail Shops</div></div>
+      <div class="stat-box reveal"><div class="stat-num" data-count="10">0</div><div class="stat-label">Years Experience</div></div>
+      <div class="stat-box reveal"><div class="stat-num" data-count="50000">0</div><div class="stat-label">Monthly Deliveries</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BRANDS ================= -->
+<section class="brands" id="brands">
+  <div class="container">
+    <div class="eyebrow reveal">Our Partner Brands</div>
+    <h2 class="section-title reveal">Brands we proudly distribute</h2>
+    <p class="section-lead reveal">A snapshot of the categories in our portfolio — replace these placeholders with your partner brand logos as they're onboarded.</p>
+    <div class="brand-grid">
+      <div class="brand-card reveal"><div class="brand-badge">MB</div><h4>Milk Brand</h4><span>Dairy</span></div>
+      <div class="brand-card reveal"><div class="brand-badge">BB</div><h4>Biscuit Brand</h4><span>Food</span></div>
+      <div class="brand-card reveal"><div class="brand-badge">CB</div><h4>Cosmetic Brand</h4><span>Beauty</span></div>
+      <div class="brand-card reveal"><div class="brand-badge">BV</div><h4>Beverage Brand</h4><span>FMCG</span></div>
+    </div>
+    <p class="brand-note reveal">Logos shown as placeholders — send us your brand assets and we'll swap these for the real thing.</p>
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="eyebrow reveal">What We Do</div>
+    <h2 class="section-title reveal">End-to-end distribution services</h2>
+    <div class="service-grid">
+      <div class="service-card reveal">
+        <svg class="service-icon" viewBox="0 0 48 48" fill="none"><rect x="4" y="18" width="22" height="14" rx="1" stroke="#2563EB" stroke-width="2"/><path d="M26 22h8l6 6v4h-14v-10z" stroke="#F97316" stroke-width="2"/><circle cx="14" cy="34" r="3" stroke="#0F172A" stroke-width="2"/><circle cx="34" cy="34" r="3" stroke="#0F172A" stroke-width="2"/></svg>
+        <h4>Distribution</h4><p>Fast and reliable product distribution to retailers.</p>
+      </div>
+      <div class="service-card reveal">
+        <svg class="service-icon" viewBox="0 0 48 48" fill="none"><path d="M24 6 44 16v20L24 46 4 36V16z" stroke="#2563EB" stroke-width="2"/><path d="M4 16l20 10 20-10M24 26v20" stroke="#F97316" stroke-width="2"/></svg>
+        <h4>Inventory Management</h4><p>Efficient warehouse and stock management.</p>
+      </div>
+      <div class="service-card reveal">
+        <svg class="service-icon" viewBox="0 0 48 48" fill="none"><circle cx="16" cy="16" r="6" stroke="#2563EB" stroke-width="2"/><circle cx="32" cy="16" r="6" stroke="#F97316" stroke-width="2"/><path d="M4 40c0-7 5-12 12-12s12 5 12 12M20 40c0-7 5-12 12-12s12 5 12 12" stroke="#0F172A" stroke-width="2"/></svg>
+        <h4>Dealer &amp; Retailer Management</h4><p>Building strong dealer and retailer relationships.</p>
+      </div>
+      <div class="service-card reveal">
+        <svg class="service-icon" viewBox="0 0 48 48" fill="none"><path d="M6 38 18 26l8 8 16-18" stroke="#F97316" stroke-width="2" stroke-linecap="round"/><path d="M32 16h10v10" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/></svg>
+        <h4>Sales &amp; Marketing Support</h4><p>Brand promotion and sales growth support.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= NETWORK ================= -->
+<section class="network" id="network">
+  <div class="container network-wrap">
+    <div class="network-copy reveal">
+      <div class="eyebrow">Our Distribution Network</div>
+      <h2 class="section-title" style="color:#fff;">Serving retailers across Bangladesh</h2>
+      <p>Serving retailers and businesses across Bangladesh with a reliable and efficient supply chain — dispatched from our Kushtia hub to regional destinations nationwide.</p>
+      <ul class="network-list">
+        <li><span class="node hub"></span> Kushtia — Distribution Hub (HQ)</li>
+        <li><span class="node"></span> Dhaka — Regional Depot</li>
+        <li><span class="node"></span> Chattogram — Regional Depot</li>
+        <li><span class="node"></span> Rajshahi — Regional Depot</li>
+        <li><span class="node"></span> Khulna — Regional Depot</li>
+        <li><span class="node"></span> Additional Districts — Expanding</li>
+      </ul>
+    </div>
+    <div class="network-map reveal">
+      <svg viewBox="0 0 400 340" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+        <line x1="200" y1="200" x2="120" y2="90" stroke="#334155" stroke-width="1.5" stroke-dasharray="4 5"/>
+        <line x1="200" y1="200" x2="300" y2="70" stroke="#334155" stroke-width="1.5" stroke-dasharray="4 5"/>
+        <line x1="200" y1="200" x2="90" y2="230" stroke="#334155" stroke-width="1.5" stroke-dasharray="4 5"/>
+        <line x1="200" y1="200" x2="300" y2="260" stroke="#334155" stroke-width="1.5" stroke-dasharray="4 5"/>
+        <line x1="200" y1="200" x2="230" y2="300" stroke="#334155" stroke-width="1.5" stroke-dasharray="4 5"/>
+
+        <circle cx="200" cy="200" r="9" fill="#F97316"/>
+        <circle cx="200" cy="200" r="16" fill="none" stroke="#F97316" stroke-width="1" opacity="0.5"/>
+        <text x="200" y="228" fill="#F97316" font-family="IBM Plex Mono" font-size="11" text-anchor="middle">KUSHTIA</text>
+
+        <circle cx="120" cy="90" r="5" fill="#3B82F6"/>
+        <text x="120" y="78" fill="#94A3B8" font-family="IBM Plex Mono" font-size="10" text-anchor="middle">RAJSHAHI</text>
+
+        <circle cx="300" cy="70" r="5" fill="#3B82F6"/>
+        <text x="300" y="58" fill="#94A3B8" font-family="IBM Plex Mono" font-size="10" text-anchor="middle">DHAKA</text>
+
+        <circle cx="90" cy="230" r="5" fill="#3B82F6"/>
+        <text x="90" y="250" fill="#94A3B8" font-family="IBM Plex Mono" font-size="10" text-anchor="middle">KHULNA</text>
+
+        <circle cx="300" cy="260" r="5" fill="#3B82F6"/>
+        <text x="300" y="280" fill="#94A3B8" font-family="IBM Plex Mono" font-size="10" text-anchor="middle">CHATTOGRAM</text>
+
+        <circle cx="230" cy="300" r="4" fill="#475569"/>
+        <text x="230" y="320" fill="#64748B" font-family="IBM Plex Mono" font-size="9.5" text-anchor="middle">+ MORE</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHY CHOOSE US ================= -->
+<section class="why">
+  <div class="container">
+    <div class="eyebrow reveal">Why Choose Us</div>
+    <h2 class="section-title reveal">Why choose Global Distribution House</h2>
+    <div class="why-grid">
+      <div class="why-card reveal"><h4>✔ Trusted Partner</h4><p>Strong and long-term business relationships.</p></div>
+      <div class="why-card reveal"><h4>✔ Wide Distribution Network</h4><p>Extensive reach across multiple regions.</p></div>
+      <div class="why-card reveal"><h4>✔ Timely Delivery</h4><p>Fast and efficient logistics.</p></div>
+      <div class="why-card reveal"><h4>✔ Professional Service</h4><p>Dedicated team and customer-focused approach.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PARTNER FORM ================= -->
+<section class="partner" id="partner">
+  <div class="container partner-wrap">
+    <div class="partner-copy reveal">
+      <div class="eyebrow">Partner With Us</div>
+      <h2 class="section-title" style="color:#fff;">Grow your brand with our network</h2>
+      <p>Tell us about your company and we'll get back to you about onboarding as a brand partner, dealer, or retailer.</p>
+      <ul class="partner-perks">
+        <li><b>→</b> Access to 500+ active retail destinations</li>
+        <li><b>→</b> Dedicated dealer &amp; retailer management</li>
+        <li><b>→</b> Nationwide dispatch from our Kushtia hub</li>
+      </ul>
+    </div>
+    <form class="partner-form reveal" id="partnerForm">
+      <div class="form-row">
+        <div class="field"><label>COMPANY NAME</label><input type="text" name="company" placeholder="Your company name" required></div>
+        <div class="field"><label>CONTACT PERSON</label><input type="text" name="contact" placeholder="Full name" required></div>
+      </div>
+      <div class="form-row">
+        <div class="field"><label>PHONE NUMBER</label><input type="tel" name="phone" placeholder="+880 1xxx-xxxxxx" required></div>
+        <div class="field"><label>EMAIL ADDRESS</label><input type="email" name="email" placeholder="you@company.com" required></div>
+      </div>
+      <div class="form-row">
+        <div class="field full">
+          <label>BUSINESS TYPE</label>
+          <select name="businessType">
+            <option>Brand / Manufacturer</option>
+            <option>Dealer</option>
+            <option>Retailer</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field full"><label>MESSAGE</label><textarea name="message" placeholder="Tell us about your business and partnership goals"></textarea></div>
+      </div>
+      <button type="submit" class="btn btn-orange" style="width:100%; justify-content:center;">Submit Inquiry</button>
+      <p class="form-note">Submitting opens your email app with the details pre-filled to <b style="color:#fff;">info@exariste.com</b>. Prefer chat? Use the WhatsApp button in the corner.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ================= GALLERY ================= -->
+<section class="gallery">
+  <div class="container">
+    <div class="eyebrow reveal">Gallery</div>
+    <h2 class="section-title reveal">Inside our operation</h2>
+    <p class="section-lead reveal">Placeholder tiles — swap these for real photography of your warehouse, fleet, and team.</p>
+    <div class="gallery-grid">
+      <div class="gallery-tile g1 reveal"><svg viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="1.6"><path d="M4 20 24 8l20 12v18H4z"/><path d="M4 20l20-12 20 12"/></svg><span>Warehouse</span></div>
+      <div class="gallery-tile g2 reveal"><svg viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="1.6"><rect x="4" y="16" width="24" height="14"/><path d="M28 22h9l6 6v2H28z"/><circle cx="14" cy="34" r="3"/><circle cx="35" cy="34" r="3"/></svg><span>Delivery Truck</span></div>
+      <div class="gallery-tile g3 reveal"><svg viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="1.6"><rect x="8" y="10" width="32" height="28" rx="1"/><path d="M8 20h32M18 10v28M28 10v28"/></svg><span>Product Storage</span></div>
+      <div class="gallery-tile g4 reveal"><svg viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="1.6"><path d="M6 40V20l18-12 18 12v20"/><path d="M18 40V26h12v14"/></svg><span>Retail Shop Delivery</span></div>
+      <div class="gallery-tile g5 reveal"><svg viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="1.6"><circle cx="16" cy="14" r="5"/><circle cx="32" cy="14" r="5"/><path d="M4 40c0-7 5-12 12-12s12 5 12 12M20 40c0-7 5-12 12-12s12 5 12 12"/></svg><span>Staff Team</span></div>
+      <div class="gallery-tile g6 reveal"><svg viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="1.6"><path d="M6 34 18 22l8 8 16-18"/><path d="M32 12h10v10"/></svg><span>Brand Promotion</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+<section class="testimonials">
+  <div class="container">
+    <div class="eyebrow reveal">Testimonials</div>
+    <h2 class="section-title reveal">What our partners say</h2>
+    <div class="test-grid">
+      <div class="test-card reveal"><div class="quote">"Reliable distribution partner with excellent service."</div><div class="who">— Retail Partner</div></div>
+      <div class="test-card reveal"><div class="quote">"Timely delivery and professional business support."</div><div class="who">— Brand Representative</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= NEWS ================= -->
+<section class="news">
+  <div class="container">
+    <div class="eyebrow reveal">News &amp; Updates</div>
+    <h2 class="section-title reveal">Latest from Global Distribution House</h2>
+    <div class="news-grid">
+      <div class="news-card reveal"><span class="news-tag">New Brand</span><h4>New brand partnership onboarded</h4><p>We've welcomed a new FMCG brand to our distribution portfolio this quarter.</p></div>
+      <div class="news-card reveal"><span class="news-tag">Expansion</span><h4>New distribution area added</h4><p>Our network now reaches additional districts, extending retailer coverage.</p></div>
+      <div class="news-card reveal"><span class="news-tag">Milestone</span><h4>Company milestone reached</h4><p>Marking another year of growth in retail partnerships and delivery volume.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="contact" id="contact">
+  <div class="container contact-grid">
+    <div class="contact-info reveal">
+      <div class="eyebrow">Get In Touch</div>
+      <h2 class="section-title" style="color:#fff;">Contact Global Distribution House</h2>
+      <div class="contact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s7-7.4 7-12.4A7 7 0 0 0 5 9.6C5 14.6 12 22 12 22z"/><circle cx="12" cy="9.5" r="2.4"/></svg> Panti, Kushtia, Bangladesh</div>
+      <div class="contact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 010 18M12 3a15 15 0 000 18"/></svg> global.exariste.com</div>
+      <div class="contact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg> info@exariste.com</div>
+      <div class="contact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .3 2 .6 3a2 2 0 01-.5 2.1L8 10a16 16 0 006 6l1.2-1.2a2 2 0 012.1-.5c1 .3 2 .5 3 .6a2 2 0 011.7 2z"/></svg> +880 1713-366224</div>
+      <div class="contact-buttons">
+        <a class="icon-btn" href="https://wa.me/8801713366224" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" fill="#25D366"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.85.5 3.58 1.35 5.06L2 22l5.2-1.45a9.86 9.86 0 004.84 1.24c5.46 0 9.9-4.45 9.9-9.91C21.95 6.45 17.5 2 12.04 2zm0 18.02c-1.6 0-3.1-.43-4.4-1.2l-.31-.18-3.09.86.83-3.01-.2-.32a8.02 8.02 0 01-1.24-4.26c0-4.42 3.6-8.02 8.02-8.02s8.02 3.6 8.02 8.02-3.6 8.11-8.02 8.11z"/></svg>
+        </a>
+        <a class="icon-btn" href="mailto:info@exariste.com" aria-label="Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+        </a>
+        <a class="icon-btn" href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="#fff"><path d="M13.5 21v-7.5H16l.5-3H13.5V8.2c0-.9.3-1.5 1.7-1.5H16.6V4.2C16.3 4.2 15.3 4 14.2 4c-2.3 0-3.9 1.4-3.9 4v2.5H8v3h2.3V21h3.2z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="map-wrap reveal">
+      <iframe src="https://www.google.com/maps?q=Panti,Kushtia,Bangladesh&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="logo.png" alt="Global Distribution House logo">
+        <div>GLOBAL DISTRIBUTION HOUSE<small>Reliable Distribution &amp; Supply Network Across Bangladesh.</small></div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h5>Explore</h5>
+          <a href="#about">About Us</a>
+          <a href="#brands">Brands</a>
+          <a href="#services">Services</a>
+          <a href="#network">Network</a>
+        </div>
+        <div class="footer-col">
+          <h5>Company</h5>
+          <a href="#partner">Become a Partner</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h5>Reach Us</h5>
+          <a href="tel:+8801713366224">+880 1713-366224</a>
+          <a href="mailto:info@exariste.com">info@exariste.com</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 GLOBAL DISTRIBUTION HOUSE. All Rights Reserved.</span>
+      <span>Panti, Kushtia, Bangladesh</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/8801713366224" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.85.5 3.58 1.35 5.06L2 22l5.2-1.45a9.86 9.86 0 004.84 1.24c5.46 0 9.9-4.45 9.9-9.91C21.95 6.45 17.5 2 12.04 2zm0 18.02c-1.6 0-3.1-.43-4.4-1.2l-.31-.18-3.09.86.83-3.01-.2-.32a8.02 8.02 0 01-1.24-4.26c0-4.42 3.6-8.02 8.02-8.02s8.02 3.6 8.02 8.02-3.6 8.11-8.02 8.11z"/></svg>
+</a>
+
+<script>
+  // route ticker content
+  const cities = [
+    {code:'KUS-01', name:'Kushtia Hub'},
+    {code:'DHK-02', name:'Dhaka Depot'},
+    {code:'CTG-03', name:'Chattogram Depot'},
+    {code:'RAJ-04', name:'Rajshahi Depot'},
+    {code:'KHU-05', name:'Khulna Depot'},
+  ];
+  const track = document.getElementById('routeLine');
+  const buildSet = () => cities.map(c => `<span><span class="dot"></span><b>${c.code}</b> ${c.name}</span>`).join('');
+  track.innerHTML = buildSet() + buildSet(); // duplicate for seamless loop
+
+  // animated stat counters
+  const statEls = document.querySelectorAll('.stat-num');
+  const animateCount = (el) => {
+    const target = parseInt(el.dataset.count, 10);
+    const duration = 1400;
+    const start = performance.now();
+    const step = (now) => {
+      const p = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      const val = Math.floor(eased * target);
+      el.textContent = val.toLocaleString('en-US') + (p >= 1 ? '+' : '');
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+
+  // reveal on scroll + trigger counters
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        if (entry.target.classList.contains('stat-box')) {
+          const num = entry.target.querySelector('.stat-num');
+          if (num && !num.dataset.done) { num.dataset.done = '1'; animateCount(num); }
+        }
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  revealEls.forEach(el => io.observe(el));
+
+  // partner form -> mailto
+  document.getElementById('partnerForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const f = new FormData(this);
+    const body = `Company Name: ${f.get('company')}%0D%0AContact Person: ${f.get('contact')}%0D%0APhone: ${f.get('phone')}%0D%0AEmail: ${f.get('email')}%0D%0ABusiness Type: ${f.get('businessType')}%0D%0AMessage: ${f.get('message')}`;
+    window.location.href = `mailto:info@exariste.com?subject=Partnership Inquiry - ${encodeURIComponent(f.get('company'))}&body=${body}`;
+  });
+
+  // mobile nav toggle styling
+  const style = document.createElement('style');
+  style.innerHTML = `@media(max-width:960px){.nav-links.open{display:flex; position:absolute; top:78px; left:0; right:0; background:rgba(10,15,28,0.98); flex-direction:column; padding:20px 24px; gap:18px;}}`;
+  document.head.appendChild(style);
+</script>
+</body>
+</html>

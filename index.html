@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HARIKA NEXUS ACADEMY — Empowering Minds, Crafting Diamonds</title>
+<meta name="description" content="HARIKA NEXUS ACADEMY — an education ecosystem of five institutions, launching 2027–2029.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#07070a;
+  --bg-alt:#0c0c11;
+  --bg-soft:#101017;
+  --glass:rgba(255,255,255,0.045);
+  --glass-strong:rgba(255,255,255,0.075);
+  --glass-border:rgba(255,255,255,0.10);
+  --ink:#f3f1ea;
+  --ink-dim:rgba(243,241,234,0.64);
+  --ink-faint:rgba(243,241,234,0.38);
+  --gold:#c9a24b;
+  --gold-bright:#f1d68b;
+  --gold-deep:#7d611f;
+  --navy:#0b1330;
+  --radius:22px;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+[data-theme="light"]{
+  --bg:#f6f4ee;
+  --bg-alt:#efece3;
+  --bg-soft:#e9e5d9;
+  --glass:rgba(10,10,15,0.04);
+  --glass-strong:rgba(10,10,15,0.07);
+  --glass-border:rgba(10,10,15,0.10);
+  --ink:#131217;
+  --ink-dim:rgba(19,18,23,0.66);
+  --ink-faint:rgba(19,18,23,0.42);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'Manrope',sans-serif;
+  overflow-x:hidden;
+  transition:background .5s var(--ease), color .5s var(--ease);
+}
+body::before{
+  content:"";
+  position:fixed;inset:0;
+  background:
+    radial-gradient(1200px 600px at 15% -10%, rgba(201,162,75,0.10), transparent 60%),
+    radial-gradient(900px 500px at 100% 10%, rgba(201,162,75,0.06), transparent 55%);
+  pointer-events:none;z-index:0;
+}
+h1,h2,h3,.display{font-family:'Cormorant Garamond',serif;font-weight:600;letter-spacing:.01em;}
+.eyebrow{
+  font-family:'Space Grotesk',monospace;
+  font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;
+  color:var(--gold);display:inline-flex;align-items:center;gap:10px;
+}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--gold);display:inline-block;}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+.container{max-width:1240px;margin:0 auto;padding:0 28px;}
+section{position:relative;z-index:1;}
+.gold-text{color:var(--gold);}
+.serif-italic{font-style:italic;font-weight:500;}
+
+/* Buttons */
+.btn{
+  font-family:'Space Grotesk',monospace;
+  font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;
+  padding:15px 30px;border-radius:100px;display:inline-flex;align-items:center;gap:10px;
+  cursor:pointer;border:1px solid transparent;transition:all .35s var(--ease);
+  white-space:nowrap;
+}
+.btn-gold{background:linear-gradient(135deg,var(--gold-bright),var(--gold) 60%,var(--gold-deep));color:#0a0906;font-weight:700;box-shadow:0 8px 30px -8px rgba(201,162,75,.55);}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 14px 34px -8px rgba(201,162,75,.7);}
+.btn-ghost{border-color:var(--glass-border);background:var(--glass);backdrop-filter:blur(14px);color:var(--ink);}
+.btn-ghost:hover{background:var(--glass-strong);border-color:var(--gold);}
+
+/* Glass card base */
+.glass{
+  background:var(--glass);
+  border:1px solid var(--glass-border);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  border-radius:var(--radius);
+}
+.neu{
+  box-shadow: 8px 8px 24px rgba(0,0,0,0.35), -6px -6px 20px rgba(255,255,255,0.02);
+}
+
+/* ===== NAVBAR ===== */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:18px 0;
+  transition:background .4s var(--ease), padding .4s var(--ease), border-color .4s var(--ease);
+  border-bottom:1px solid transparent;
+}
+header.scrolled{
+  background:color-mix(in srgb, var(--bg) 78%, transparent);
+  backdrop-filter:blur(16px);
+  padding:12px 0;
+  border-bottom:1px solid var(--glass-border);
+}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;}
+.brand{display:flex;align-items:center;gap:12px;font-family:'Space Grotesk',monospace;}
+.brand img{height:42px;width:42px;object-fit:contain;}
+.brand-text{display:flex;flex-direction:column;line-height:1.1;}
+.brand-text b{font-size:.92rem;letter-spacing:.04em;}
+.brand-text span{font-size:.62rem;letter-spacing:.2em;color:var(--gold);}
+nav.links{display:flex;gap:30px;font-size:.85rem;font-weight:600;}
+nav.links a{position:relative;padding:4px 0;color:var(--ink-dim);transition:color .3s;}
+nav.links a:hover{color:var(--ink);}
+nav.links a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:1px;background:var(--gold);transition:width .3s var(--ease);}
+nav.links a:hover::after{width:100%;}
+.nav-actions{display:flex;align-items:center;gap:12px;}
+.icon-btn{
+  width:38px;height:38px;border-radius:50%;display:grid;place-items:center;
+  background:var(--glass);border:1px solid var(--glass-border);cursor:pointer;font-size:.75rem;
+  font-family:'Space Grotesk',monospace;color:var(--ink);
+}
+.burger{display:none;width:38px;height:38px;border-radius:50%;border:1px solid var(--glass-border);background:var(--glass);cursor:pointer;place-items:center;}
+.burger span{display:block;width:16px;height:1px;background:var(--ink);position:relative;}
+.burger span::before,.burger span::after{content:"";position:absolute;width:16px;height:1px;background:var(--ink);left:0;}
+.burger span::before{top:-5px;}
+.burger span::after{top:5px;}
+
+/* Mobile nav */
+.mobile-nav{
+  position:fixed;inset:0 0 0 auto;width:min(320px,84vw);z-index:150;
+  background:var(--bg-alt);border-left:1px solid var(--glass-border);
+  padding:100px 30px 30px;display:flex;flex-direction:column;gap:22px;
+  transform:translateX(100%);transition:transform .45s var(--ease);
+}
+.mobile-nav.open{transform:translateX(0);}
+.mobile-nav a{font-size:1.1rem;font-family:'Cormorant Garamond',serif;}
+.mobile-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:140;opacity:0;pointer-events:none;transition:opacity .4s;}
+.mobile-backdrop.open{opacity:1;pointer-events:auto;}
+
+/* ===== HERO ===== */
+.hero{
+  min-height:100vh;display:flex;align-items:center;
+  padding:150px 0 90px;position:relative;overflow:hidden;
+}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;}
+.hero .eyebrow{margin-bottom:22px;}
+.hero h1{font-size:clamp(2.6rem,6vw,4.6rem);line-height:1.03;letter-spacing:-.01em;}
+.hero h1 .thin{font-weight:400;color:var(--ink-dim);display:block;font-size:.42em;letter-spacing:.28em;font-family:'Space Grotesk',monospace;margin-top:16px;text-transform:uppercase;}
+.hero p.lead{margin-top:26px;max-width:480px;color:var(--ink-dim);font-size:1.05rem;line-height:1.75;}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px;}
+.hero-stats{display:grid;grid-template-columns:repeat(4,auto);gap:30px;margin-top:64px;}
+.hero-stats div b{display:block;font-family:'Cormorant Garamond',serif;font-size:1.9rem;color:var(--gold-bright);}
+.hero-stats div span{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);}
+
+/* Orbit */
+.orbit-wrap{position:relative;height:520px;display:flex;align-items:center;justify-content:center;}
+.orbit-core{
+  width:150px;height:150px;border-radius:50%;
+  background:radial-gradient(circle at 35% 30%, rgba(201,162,75,.35), rgba(201,162,75,0.02) 70%), var(--glass);
+  border:1px solid var(--glass-border);backdrop-filter:blur(10px);
+  display:grid;place-items:center;z-index:5;position:relative;
+  box-shadow:0 0 60px rgba(201,162,75,.18);
+}
+.orbit-core img{width:88px;height:88px;object-fit:contain;}
+.orbit-ring{
+  position:absolute;border:1px dashed var(--glass-border);border-radius:50%;
+}
+.ring1{width:300px;height:300px;animation:spin 60s linear infinite;}
+.ring2{width:460px;height:460px;animation:spin 90s linear infinite reverse;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.orbiter{
+  position:absolute;top:50%;left:50%;width:300px;height:300px;
+  margin:-150px 0 0 -150px;animation:orbitspin 60s linear infinite;
+}
+.orbiter.slow{width:460px;height:460px;margin:-230px 0 0 -230px;animation-duration:90s;animation-direction:reverse;}
+@keyframes orbitspin{to{transform:rotate(360deg);}}
+.chip{
+  position:absolute;top:0;left:50%;width:74px;height:74px;margin-left:-37px;
+  border-radius:50%;background:var(--glass-strong);border:1px solid var(--glass-border);
+  backdrop-filter:blur(10px);display:grid;place-items:center;
+  animation:counterspin 60s linear infinite;
+  box-shadow:0 8px 24px rgba(0,0,0,.35);
+}
+.orbiter.slow .chip{animation-duration:90s;animation-direction:reverse;}
+@keyframes counterspin{to{transform:rotate(-360deg);}}
+.chip img{width:44px;height:44px;object-fit:contain;}
+.chip.soon{display:grid;place-items:center;font-family:'Space Grotesk',monospace;font-size:.55rem;letter-spacing:.05em;text-align:center;color:var(--gold);}
+
+/* ===== SECTION HEADS ===== */
+.section-head{max-width:640px;margin-bottom:56px;}
+.section-head h2{font-size:clamp(1.9rem,3.4vw,2.8rem);margin-top:14px;line-height:1.15;}
+.section-head p{color:var(--ink-dim);margin-top:16px;line-height:1.7;}
+.pad{padding:120px 0;}
+.pad-sm{padding:90px 0;}
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--glass-border),transparent);}
+
+/* ===== ABOUT ===== */
+.about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:center;}
+.founder-card{padding:14px;position:relative;}
+.founder-card img{border-radius:16px;width:100%;object-fit:cover;aspect-ratio:1/1.05;}
+.founder-tag{
+  position:absolute;bottom:-22px;left:24px;right:24px;padding:18px 22px;
+  display:flex;justify-content:space-between;align-items:center;
+}
+.founder-tag b{font-family:'Cormorant Garamond',serif;font-size:1.15rem;}
+.founder-tag span{display:block;font-size:.72rem;color:var(--gold);letter-spacing:.05em;margin-top:2px;}
+.about-copy p{color:var(--ink-dim);line-height:1.85;margin-top:18px;}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px;}
+.pillar{padding:24px 20px;text-align:left;}
+.pillar b{display:block;font-family:'Cormorant Garamond',serif;font-size:1.2rem;margin-bottom:6px;}
+.pillar span{font-size:.85rem;color:var(--ink-dim);line-height:1.5;}
+
+/* Timeline */
+.timeline{display:flex;gap:0;margin-top:60px;overflow-x:auto;padding-bottom:10px;}
+.tl-item{flex:1;min-width:150px;position:relative;padding:0 18px 0 0;}
+.tl-item::before{content:"";position:absolute;top:9px;left:0;right:0;height:1px;background:var(--glass-border);}
+.tl-item:first-child::before{left:9px;}
+.tl-dot{width:9px;height:9px;border-radius:50%;background:var(--gold);position:relative;z-index:2;margin-bottom:16px;}
+.tl-item b{font-family:'Space Grotesk',monospace;color:var(--gold);font-size:.8rem;}
+.tl-item p{margin-top:6px;font-size:.85rem;color:var(--ink-dim);line-height:1.5;}
+
+/* ===== INSTITUTIONS ===== */
+.inst-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+.inst-card{
+  padding:34px 28px;position:relative;overflow:hidden;
+  transition:transform .5s var(--ease), border-color .5s;
+  display:flex;flex-direction:column;min-height:340px;
+}
+.inst-card:hover{transform:translateY(-10px);border-color:var(--gold);}
+.inst-card .yr{
+  position:absolute;top:22px;right:24px;font-family:'Space Grotesk',monospace;
+  font-size:.7rem;color:var(--gold);border:1px solid var(--glass-border);padding:5px 12px;border-radius:100px;
+}
+.inst-logo{width:64px;height:64px;object-fit:contain;margin-bottom:22px;}
+.inst-card h3{font-size:1.5rem;margin-bottom:6px;}
+.inst-card .tag{font-style:italic;color:var(--gold-bright);font-size:.95rem;font-family:'Cormorant Garamond',serif;}
+.inst-card p.desc{color:var(--ink-dim);font-size:.88rem;margin-top:14px;line-height:1.65;flex:1;}
+.inst-card .go{margin-top:20px;font-family:'Space Grotesk',monospace;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);display:inline-flex;align-items:center;gap:8px;}
+.inst-card .go svg{transition:transform .3s;}
+.inst-card:hover .go svg{transform:translateX(4px);}
+.inst-card.placeholder{align-items:center;justify-content:center;text-align:center;border-style:dashed;}
+.inst-card.placeholder b{font-family:'Cormorant Garamond',serif;font-size:1.3rem;margin-top:14px;}
+.inst-card.placeholder span{color:var(--ink-faint);font-size:.8rem;margin-top:8px;display:block;}
+
+/* ===== PROGRAMS / GRID CARDS ===== */
+.chip-row{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:44px;}
+.chip-row .tab{
+  padding:10px 22px;border-radius:100px;font-family:'Space Grotesk',monospace;font-size:.78rem;
+  border:1px solid var(--glass-border);background:var(--glass);cursor:default;color:var(--ink-dim);
+}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.feat-card{padding:30px 26px;transition:border-color .4s, transform .4s var(--ease);}
+.feat-card:hover{border-color:var(--gold);transform:translateY(-6px);}
+.feat-icon{
+  width:52px;height:52px;border-radius:14px;display:grid;place-items:center;
+  background:linear-gradient(135deg,rgba(201,162,75,.18),rgba(201,162,75,.02));
+  border:1px solid var(--glass-border);margin-bottom:18px;color:var(--gold-bright);
+}
+.feat-card h4{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;margin-bottom:8px;}
+.feat-card p{color:var(--ink-dim);font-size:.86rem;line-height:1.6;}
+
+/* ===== WHY CHOOSE ===== */
+.why-wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+.why-card{padding:26px 22px;text-align:left;}
+.why-card b{display:block;font-family:'Cormorant Garamond',serif;font-size:1.15rem;margin:14px 0 6px;}
+.why-card span{font-size:.82rem;color:var(--ink-dim);line-height:1.5;}
+
+/* ===== ADMISSION ===== */
+.adm-wrap{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start;}
+.adm-steps{display:flex;flex-direction:column;gap:0;}
+.adm-step{display:flex;gap:20px;padding:22px 0;border-bottom:1px solid var(--glass-border);}
+.adm-step:last-child{border-bottom:none;}
+.adm-num{font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--gold);width:44px;flex-shrink:0;}
+.adm-step h4{font-size:1.05rem;margin-bottom:4px;font-family:'Manrope';font-weight:700;}
+.adm-step p{color:var(--ink-dim);font-size:.86rem;line-height:1.55;}
+.adm-panel{padding:34px 30px;}
+.adm-panel h3{font-size:1.5rem;margin-bottom:18px;}
+.adm-row{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--glass-border);font-size:.9rem;}
+.adm-row span:last-child{color:var(--gold-bright);font-family:'Space Grotesk',monospace;font-size:.82rem;}
+.adm-panel .btn{width:100%;justify-content:center;margin-top:24px;}
+
+/* ===== FACULTY ===== */
+.fac-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.fac-card{padding:26px 20px;text-align:center;}
+.fac-avatar{
+  width:74px;height:74px;border-radius:50%;margin:0 auto 16px;
+  background:linear-gradient(135deg,rgba(201,162,75,.25),rgba(201,162,75,.03));
+  border:1px solid var(--glass-border);display:grid;place-items:center;
+  font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--gold-bright);
+}
+.fac-card b{display:block;font-size:.95rem;margin-bottom:2px;}
+.fac-card span{font-size:.76rem;color:var(--ink-dim);}
+.fac-note{margin-top:34px;text-align:center;color:var(--ink-faint);font-size:.82rem;}
+
+/* ===== TESTIMONIALS ===== */
+.quote-track{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.quote-card{padding:32px 28px;}
+.quote-card .mark{font-family:'Cormorant Garamond',serif;font-size:3rem;color:var(--gold);line-height:.5;display:block;margin-bottom:14px;}
+.quote-card p{color:var(--ink-dim);font-size:.92rem;line-height:1.7;font-style:italic;}
+.quote-who{display:flex;align-items:center;gap:12px;margin-top:20px;}
+.quote-dot{width:36px;height:36px;border-radius:50%;background:var(--glass-strong);border:1px solid var(--glass-border);}
+.quote-who b{font-size:.86rem;display:block;}
+.quote-who span{font-size:.74rem;color:var(--ink-faint);}
+
+/* ===== GALLERY ===== */
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:140px;gap:14px;}
+.gal-item{
+  border-radius:16px;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,var(--bg-soft),var(--bg-alt));
+  border:1px solid var(--glass-border);display:flex;align-items:flex-end;padding:16px;
+}
+.gal-item span{font-family:'Space Grotesk',monospace;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);}
+.gal-item.big{grid-column:span 2;grid-row:span 2;}
+
+/* ===== FAQ ===== */
+.faq-list{max-width:800px;}
+.faq-item{border-bottom:1px solid var(--glass-border);padding:22px 0;cursor:pointer;}
+.faq-q{display:flex;justify-content:space-between;align-items:center;font-size:1.05rem;font-family:'Cormorant Garamond',serif;}
+.faq-plus{font-family:'Space Grotesk',monospace;color:var(--gold);font-size:1.2rem;transition:transform .35s var(--ease);flex-shrink:0;margin-left:20px;}
+.faq-item.open .faq-plus{transform:rotate(45deg);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s var(--ease);}
+.faq-item.open .faq-a{max-height:220px;}
+.faq-a p{padding-top:14px;color:var(--ink-dim);font-size:.9rem;line-height:1.7;max-width:640px;}
+
+/* ===== CONTACT ===== */
+.contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:50px;}
+.contact-info .row{display:flex;gap:16px;padding:18px 0;border-bottom:1px solid var(--glass-border);}
+.contact-info .row b{display:block;font-size:.92rem;}
+.contact-info .row span{font-size:.84rem;color:var(--ink-dim);}
+.map-glass{height:100%;min-height:220px;display:grid;place-items:center;color:var(--ink-faint);font-family:'Space Grotesk',monospace;font-size:.78rem;letter-spacing:.06em;padding:20px;text-align:center;}
+.form-card{padding:34px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
+input,textarea{
+  width:100%;background:var(--glass);border:1px solid var(--glass-border);border-radius:12px;
+  padding:14px 16px;color:var(--ink);font-family:'Manrope';font-size:.9rem;outline:none;transition:border-color .3s;
+}
+input:focus,textarea:focus{border-color:var(--gold);}
+textarea{resize:vertical;min-height:110px;}
+::placeholder{color:var(--ink-faint);}
+
+/* ===== FOOTER ===== */
+footer{padding:80px 0 30px;border-top:1px solid var(--glass-border);}
+.foot-top{display:grid;grid-template-columns:1.4fr repeat(4,1fr);gap:40px;padding-bottom:56px;}
+.foot-brand .brand{margin-bottom:16px;}
+.foot-brand p{color:var(--ink-dim);font-size:.86rem;line-height:1.7;max-width:280px;}
+.foot-col b{font-family:'Space Grotesk',monospace;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:18px;}
+.foot-col a{display:block;font-size:.86rem;color:var(--ink-dim);margin-bottom:12px;transition:color .3s;}
+.foot-col a:hover{color:var(--ink);}
+.newsletter{display:flex;gap:8px;margin-top:14px;}
+.newsletter input{padding:11px 14px;font-size:.82rem;}
+.newsletter button{border:none;background:var(--gold);color:#0a0906;border-radius:10px;padding:0 16px;font-family:'Space Grotesk';font-weight:700;cursor:pointer;font-size:.9rem;}
+.foot-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;padding-top:26px;border-top:1px solid var(--glass-border);font-size:.8rem;color:var(--ink-faint);}
+.social{display:flex;gap:10px;}
+.social a{width:34px;height:34px;border-radius:50%;border:1px solid var(--glass-border);display:grid;place-items:center;font-size:.72rem;}
+
+/* Reveal on scroll */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease), transform .8s var(--ease);}
+.reveal.in{opacity:1;transform:translateY(0);}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+}
+
+/* Focus visibility */
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width:1080px){
+  nav.links{display:none;}
+  .burger{display:grid;}
+  .hero-grid{grid-template-columns:1fr;}
+  .orbit-wrap{height:380px;margin-top:20px;}
+  .about-grid,.adm-wrap,.contact-grid{grid-template-columns:1fr;}
+  .inst-grid,.grid-3,.grid-4,.why-wrap,.fac-grid,.quote-track{grid-template-columns:repeat(2,1fr);}
+  .foot-top{grid-template-columns:repeat(2,1fr);}
+  .gal-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media (max-width:640px){
+  .container{padding:0 20px;}
+  .pad{padding:80px 0;}
+  .hero{padding:130px 0 60px;}
+  .hero-stats{grid-template-columns:repeat(2,1fr);gap:26px;}
+  .inst-grid,.grid-3,.grid-4,.why-wrap,.fac-grid,.quote-track,.foot-top,.pillars{grid-template-columns:1fr;}
+  .form-row{grid-template-columns:1fr;}
+  .gal-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:110px;}
+  .gal-item.big{grid-column:span 2;grid-row:span 1;}
+  .foot-bottom{flex-direction:column;align-items:flex-start;}
+}
+[data-lang="en"] .bn{display:none;}
+[data-lang="bn"] .en{display:none;}
+[data-lang="bn"] h1,[data-lang="bn"] h2,[data-lang="bn"] h3,[data-lang="bn"] .display{font-family:'Manrope',sans-serif;}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header id="siteHeader">
+  <div class="container nav-inner">
+    <a href="#home" class="brand">
+      <img src="assets/logo-main.webp" alt="HARIKA NEXUS ACADEMY">
+      <div class="brand-text">
+        <b>HARIKA NEXUS</b>
+        <span>ACADEMY</span>
+      </div>
+    </a>
+    <nav class="links">
+      <a href="#about">About</a>
+      <a href="#institutions">Institutions</a>
+      <a href="#programs">Programs</a>
+      <a href="#admission">Admission</a>
+      <a href="#faculty">Faculty</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn" id="langToggle" aria-label="Toggle language">EN</button>
+      <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">☾</button>
+      <a href="#admission" class="btn btn-gold" style="padding:11px 22px;">Apply Now</a>
+      <button class="burger" id="burgerBtn" aria-label="Open menu"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-backdrop" id="mobBackdrop"></div>
+<div class="mobile-nav" id="mobNav">
+  <a href="#about">About</a>
+  <a href="#institutions">Institutions</a>
+  <a href="#programs">Programs</a>
+  <a href="#facilities">Facilities</a>
+  <a href="#admission">Admission</a>
+  <a href="#faculty">Faculty</a>
+  <a href="#faq">FAQ</a>
+  <a href="#contact">Contact</a>
+  <a href="#admission" class="btn btn-gold" style="justify-content:center;margin-top:10px;">Apply Now</a>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow">
+        <span class="en">An Education Ecosystem</span><span class="bn">একটি শিক্ষা ইকোসিস্টেম</span>
+      </div>
+      <h1 class="display">
+        <span class="en">HARIKA<br>NEXUS ACADEMY</span>
+        <span class="bn">হারিকা নেক্সাস<br>একাডেমি</span>
+        <span class="thin en">Empowering Minds, Crafting Diamonds</span>
+        <span class="thin bn">মেধা গঠন, হীরা তৈরি</span>
+      </h1>
+      <p class="lead en">Five institutions, one vision — a connected campus ecosystem spanning school, coaching, university guidance, career development, and college, built to grow with every learner from first classroom to first career.</p>
+      <p class="lead bn">পাঁচটি প্রতিষ্ঠান, একটি লক্ষ্য — স্কুল, কোচিং, বিশ্ববিদ্যালয় গাইডেন্স, ক্যারিয়ার ডেভেলপমেন্ট ও কলেজ নিয়ে গড়া একটি সংযুক্ত ইকোসিস্টেম।</p>
+      <div class="hero-cta">
+        <a href="#institutions" class="btn btn-gold">Explore Academy</a>
+        <a href="#admission" class="btn btn-ghost">Apply Now</a>
+        <a href="#about" class="btn btn-ghost">Virtual Tour</a>
+      </div>
+      <div class="hero-stats">
+        <div><b>05</b><span>Institutions</span></div>
+        <div><b>2027</b><span>Launch Begins</span></div>
+        <div><b>2029</b><span>Full Ecosystem</span></div>
+        <div><b>01</b><span>Shared Vision</span></div>
+      </div>
+    </div>
+
+    <div class="orbit-wrap" aria-hidden="true">
+      <div class="orbit-ring ring2"></div>
+      <div class="orbit-ring ring1"></div>
+      <div class="orbit-core"><img src="assets/logo-main.webp" alt=""></div>
+
+      <div class="orbiter">
+        <div class="chip" style="transform:rotate(0deg) translateY(-150px) rotate(0deg);"><img src="assets/logo-lab-school.webp" alt="Harika Laboratory School"></div>
+      </div>
+      <div class="orbiter" style="animation-delay:-12s;">
+        <div class="chip" style="transform:rotate(0deg) translateY(-150px) rotate(0deg);"><img src="assets/logo-edusphere.webp" alt="Harika Edusphere"></div>
+      </div>
+      <div class="orbiter" style="animation-delay:-24s;">
+        <div class="chip" style="transform:rotate(0deg) translateY(-150px) rotate(0deg);"><img src="assets/logo-univision.webp" alt="Harika Univision"></div>
+      </div>
+      <div class="orbiter" style="animation-delay:-36s;">
+        <div class="chip" style="transform:rotate(0deg) translateY(-150px) rotate(0deg);"><img src="assets/logo-career-edge.webp" alt="Harika Career Edge"></div>
+      </div>
+      <div class="orbiter slow">
+        <div class="chip soon">2029</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container"><div class="divider"></div></div>
+
+<!-- ============ ABOUT ============ -->
+<section class="pad" id="about">
+  <div class="container about-grid">
+    <div class="reveal">
+      <div class="glass founder-card">
+        <img src="assets/founder.webp" alt="Md. Ohid-uz-Zaman, Chairman, Harika Nexus Academy">
+      </div>
+      <div class="glass founder-tag">
+        <div>
+          <b>Md. Ohid-uz-Zaman</b>
+          <span>Founder & Chairman</span>
+        </div>
+        <span style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--gold);">”</span>
+      </div>
+    </div>
+
+    <div class="about-copy reveal">
+      <div class="eyebrow">Founder's Message</div>
+      <h2 class="display">A vision built to outgrow<br>a single classroom</h2>
+      <p>HARIKA NEXUS ACADEMY began as a question: what if a school didn't stop at graduation? Every institution under this roof — laboratory school, coaching, university guidance, career development, and college — is built to hand a student forward to the next, so no learner ever has to start over.</p>
+      <p>This is our founder's most personal project: a campus ecosystem grown deliberately, one institution at a time, through 2027 to 2029, so each new addition is built with the same care as the first.</p>
+
+      <div class="pillars">
+        <div class="glass pillar">
+          <b>Vision</b>
+          <span>To become the region's most trusted end-to-end education ecosystem.</span>
+        </div>
+        <div class="glass pillar">
+          <b>Mission</b>
+          <span>Guide every learner from first classroom to first career, without a single gap.</span>
+        </div>
+        <div class="glass pillar">
+          <b>Core Values</b>
+          <span>Curiosity, integrity, discipline, and craftsmanship in every institution we build.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="timeline reveal">
+      <div class="tl-item"><div class="tl-dot"></div><b>2027</b><p>Harika Laboratory School & Harika Edusphere open their doors.</p></div>
+      <div class="tl-item"><div class="tl-dot"></div><b>2028</b><p>Harika Univision and Harika Career Edge join the ecosystem.</p></div>
+      <div class="tl-item"><div class="tl-dot"></div><b>2029</b><p>Harika Laboratory College completes the full five-institution nexus.</p></div>
+      <div class="tl-item"><div class="tl-dot"></div><b>Beyond</b><p>New institutions join the same ecosystem as the vision expands.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="container"><div class="divider"></div></div>
+
+<!-- ============ INSTITUTIONS ============ -->
+<section class="pad" id="institutions">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">The Five Institutions</div>
+      <h2 class="display">One nexus, five ways to grow</h2>
+      <p>Each institution stands on its own — with its own campus identity, programs, and people — while sharing the same founding philosophy and connected support system.</p>
+    </div>
+
+    <div class="inst-grid">
+      <div class="glass inst-card reveal">
+        <span class="yr">Est. 2027</span>
+        <img class="inst-logo" src="assets/logo-lab-school.webp" alt="Harika Laboratory School">
+        <h3>Harika Laboratory School</h3>
+        <div class="tag">Where Curiosity Meets Excellence</div>
+        <p class="desc">A foundation-level laboratory school built around hands-on science, smart classrooms, and a curriculum that treats every question as worth chasing.</p>
+        <a href="#" class="go">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+
+      <div class="glass inst-card reveal">
+        <span class="yr">Est. 2027</span>
+        <img class="inst-logo" src="assets/logo-edusphere.webp" alt="Harika Edusphere">
+        <h3>Harika Edusphere</h3>
+        <div class="tag">Journey to Academic Excellence</div>
+        <p class="desc">Our admission and academic coaching wing — structured programs that turn ambition into results for board exams and beyond.</p>
+        <a href="#" class="go">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+
+      <div class="glass inst-card reveal">
+        <span class="yr">Est. 2028</span>
+        <img class="inst-logo" src="assets/logo-univision.webp" alt="Harika Univision">
+        <h3>Harika Univision</h3>
+        <div class="tag">Your Vision, Our Mission</div>
+        <p class="desc">University admission guidance and higher-study counselling, built to translate a student's ambitions into a clear, achievable pathway.</p>
+        <a href="#" class="go">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+
+      <div class="glass inst-card reveal">
+        <span class="yr">Est. 2028</span>
+        <img class="inst-logo" src="assets/logo-career-edge.webp" alt="Harika Career Edge">
+        <h3>Harika Career Edge</h3>
+        <div class="tag">Your Edge to Excellence</div>
+        <p class="desc">Career development and employability training — the bridge between academic achievement and a first professional step.</p>
+        <a href="#" class="go">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+
+      <div class="glass inst-card reveal">
+        <span class="yr">Est. 2029</span>
+        <img class="inst-logo" src="assets/logo-main.webp" alt="Harika Laboratory College — coming soon">
+        <h3>Harika Laboratory College</h3>
+        <div class="tag">Committed to Excellence</div>
+        <p class="desc">Our full higher-secondary college, completing the ecosystem from first classroom through to the college gate.</p>
+        <a href="#" class="go">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+
+      <div class="glass inst-card placeholder reveal">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--gold);"><path d="M12 5v14M5 12h14"/></svg>
+        <b>The Next Institution</b>
+        <span>Space reserved in the ecosystem for what the vision builds next.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROGRAMS ============ -->
+<section class="pad-sm" id="programs" style="background:var(--bg-alt);">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Academic Programs</div>
+      <h2 class="display">A pathway for every stage</h2>
+      <p>From first enrollment to final placement, programs are designed to connect — each one preparing a student for the next.</p>
+    </div>
+    <div class="grid-3">
+      <div class="glass feat-card reveal">
+        <div class="feat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l9 4.5-9 4.5-9-4.5L12 3z"/><path d="M3 12l9 4.5 9-4.5M3 16.5l9 4.5 9-4.5"/></svg></div>
+        <h4>School Program</h4>
+        <p>Full academic curriculum at Harika Laboratory School, built around smart classrooms and lab-based learning.</p>
+      </div>
+      <div class="glass feat-card reveal">
+        <div class="feat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 19V5a2 2 0 012-2h12a2 2 0 012 2v14"/><path d="M4 19a2 2 0 002 2h14M9 8h6M9 12h6"/></svg></div>
+        <h4>Academic Coaching</h4>
+        <p>Subject-focused coaching at Harika Edusphere for board and competitive-exam preparation.</p>
+      </div>
+      <div class="glass feat-card reveal">
+        <div class="feat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.5-7 8-7s8 3 8 7"/></svg></div>
+        <h4>Admission Coaching</h4>
+        <p>Focused preparation for entrance exams and applications, guided by dedicated mentors.</p>
+      </div>
+      <div class="glass feat-card reveal">
+        <div class="feat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></div>
+        <h4>Career Development</h4>
+        <p>Employability, soft-skills, and industry-readiness training through Harika Career Edge.</p>
+      </div>
+      <div class="glass feat-card reveal">
+        <div class="feat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg></div>
+        <h4>College Program</h4>
+        <p>Higher-secondary education at Harika Laboratory College, opening in 2029.</p>
+      </div>
+      <div class="glass feat-card reveal">
+        <div class="feat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l2.5 6.5L21 9l-5 4.5L17.5 21 12 17l-5.5 4L8 13.5 3 9l6.5-.5L12 2z"/></svg></div>
+        <h4>University Guidance</h4>
+        <p>Higher-study counselling and application support through Harika Univision.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FACILITIES ============ -->
+<section class="pad" id="facilities">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Learning Facilities</div>
+      <h2 class="display">Built for hands-on learning</h2>
+    </div>
+    <div class="grid-4">
+      <div class="glass feat-card reveal"><div class="feat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="12" rx="1"/><path d="M8 20h8M12 16v4"/></svg></div><h4>Smart Classroom</h4></div>
+      <div class="glass feat-card reveal"><div class="feat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 3h6M10 3v5l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3"/></svg></div><h4>Science Lab</h4></div>
+      <div class="glass feat-card reveal"><div class="feat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg></div><h4>ICT Lab</h4></div>
+      <div class="glass feat-card reveal"><div class="feat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="6" y="8" width="12" height="10" rx="2"/><circle cx="9" cy="12" r="1"/><circle cx="15" cy="12" r="1"/><path d="M12 8V5M9 5h6"/></svg></div><h4>Robotics Lab</h4></div>
+      <div class="glass feat-card reveal"><div class="feat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20c-4-3-8-6-8-10a4 4 0 018-2 4 4 0 018 2c0 4-4 7-8 10z"/></svg></div><h4>Language Lab</h4></div>
+      <div class="glass feat-card reveal"><div class="feat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 19.5A2.5 2.5 0 016.5 17H20V4H6.5A2.5 2.5 0 004 6.5v13z"/><path d="M20 22H6.5A2.5 2.5 0 014 19.5"/></svg></div><h4>Library</h4></div>
+      <div class="glass feat-card reveal"><div class="feat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 20l9-16 9 16z"/><path d="M9 20v-6h6v6"/></svg></div><h4>Auditorium</h4></div>
+      <div class="glass feat-card reveal"><div class="feat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg></div><h4>Playground</h4></div>
+      <div class="glass feat-card reveal"><div class="feat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 17h18M5 17V9l3-4h8l3 4v8"/><circle cx="7.5" cy="17" r="1.5"/><circle cx="16.5" cy="17" r="1.5"/></svg></div><h4>Transport</h4></div>
+      <div class="glass feat-card reveal"><div class="feat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 3h16v13H4z"/><path d="M8 21h8M9 16v5M15 16v5"/></svg></div><h4>Cafeteria</h4></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY CHOOSE ============ -->
+<section class="pad-sm" id="why" style="background:var(--bg-alt);">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Why Choose Harika</div>
+      <h2 class="display">Eight commitments behind every classroom</h2>
+    </div>
+    <div class="why-wrap">
+      <div class="glass why-card reveal"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.6"><path d="M12 2v20M2 12h20"/></svg><b>Modern Teaching</b><span>Curriculum designed for how students actually learn today.</span></div>
+      <div class="glass why-card reveal"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.5-7 8-7s8 3 8 7"/></svg><b>Experienced Teachers</b><span>Educators selected for both subject mastery and mentorship.</span></div>
+      <div class="glass why-card reveal"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.6"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8"/></svg><b>Digital Learning</b><span>Blended tools that extend the classroom beyond its walls.</span></div>
+      <div class="glass why-card reveal"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.6"><circle cx="12" cy="7" r="4"/><path d="M4 21v-1a8 8 0 0116 0v1"/></svg><b>Parent Portal</b><span>Transparent visibility into attendance, results, and notices.</span></div>
+      <div class="glass why-card reveal"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.6"><path d="M3 17h18M5 17V9l3-4h8l3 4v8"/></svg><b>Career Guidance</b><span>A clear line from classroom performance to career readiness.</span></div>
+      <div class="glass why-card reveal"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.6"><path d="M12 21c4-3 8-6.5 8-11a5 5 0 00-9-3 5 5 0 00-9 3c0 4.5 4 8 8 11z"/></svg><b>Character Building</b><span>Discipline and values woven into daily campus life.</span></div>
+      <div class="glass why-card reveal"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.6"><path d="M12 2l2.5 6.5L21 9l-5 4.5L17.5 21 12 17l-5.5 4L8 13.5 3 9l6.5-.5L12 2z"/></svg><b>Scholarship</b><span>Merit-based support that keeps talent from being turned away.</span></div>
+      <div class="glass why-card reveal"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.6"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg><b>Smart Campus</b><span>Secure, connected campuses built for a future-ready generation.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ADMISSION ============ -->
+<section class="pad" id="admission">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Admission</div>
+      <h2 class="display">Four steps into the ecosystem</h2>
+    </div>
+    <div class="adm-wrap">
+      <div class="adm-steps reveal">
+        <div class="adm-step"><div class="adm-num">01</div><div><h4>Choose your institution</h4><p>Pick the institution that matches your stage — school, coaching, university guidance, career track, or college.</p></div></div>
+        <div class="adm-step"><div class="adm-num">02</div><div><h4>Submit your application</h4><p>Complete the form online or download the prospectus and apply in person at the campus office.</p></div></div>
+        <div class="adm-step"><div class="adm-num">03</div><div><h4>Assessment & interview</h4><p>A short assessment and a conversation with our academic team to understand your goals.</p></div></div>
+        <div class="adm-step"><div class="adm-num">04</div><div><h4>Confirm your seat</h4><p>Complete enrollment formalities and receive your orientation schedule.</p></div></div>
+      </div>
+
+      <div class="glass adm-panel reveal">
+        <h3>Admission Snapshot</h3>
+        <div class="adm-row"><span>Application Mode</span><span>Online / In-Person</span></div>
+        <div class="adm-row"><span>Assessment</span><span>Written + Interview</span></div>
+        <div class="adm-row"><span>Scholarship</span><span>Merit-Based</span></div>
+        <div class="adm-row"><span>Session</span><span>Announced Per Institution</span></div>
+        <a href="#contact" class="btn btn-gold">Start Online Application</a>
+        <a href="#contact" class="btn btn-ghost" style="width:100%;justify-content:center;margin-top:12px;">Download Prospectus</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FACULTY ============ -->
+<section class="pad-sm" id="faculty" style="background:var(--bg-alt);">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Faculty</div>
+      <h2 class="display">The people behind the ecosystem</h2>
+      <p>Full faculty profiles will populate here as each institution's teaching team is confirmed for its opening session.</p>
+    </div>
+    <div class="fac-grid">
+      <div class="glass fac-card reveal"><div class="fac-avatar">LS</div><b>Laboratory School Faculty</b><span>Profiles coming soon</span></div>
+      <div class="glass fac-card reveal"><div class="fac-avatar">ES</div><b>Edusphere Faculty</b><span>Profiles coming soon</span></div>
+      <div class="glass fac-card reveal"><div class="fac-avatar">UV</div><b>Univision Mentors</b><span>Profiles coming soon</span></div>
+      <div class="glass fac-card reveal"><div class="fac-avatar">CE</div><b>Career Edge Trainers</b><span>Profiles coming soon</span></div>
+    </div>
+    <p class="fac-note">Faculty photos, qualifications, and subject specialisations will be added through the academy's CMS as each team is finalised.</p>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="pad">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Voices of the Ecosystem</div>
+      <h2 class="display">What the community will say</h2>
+      <p>Testimonial space, ready for real voices from students, parents, and alumni once each institution opens.</p>
+    </div>
+    <div class="quote-track">
+      <div class="glass quote-card reveal"><span class="mark">"</span><p>This space is reserved for a story from a Harika student, once our first classes begin.</p><div class="quote-who"><div class="quote-dot"></div><div><b>Student Voice</b><span>Reserved</span></div></div></div>
+      <div class="glass quote-card reveal"><span class="mark">"</span><p>This space is reserved for a reflection from a Harika parent on our shared journey.</p><div class="quote-who"><div class="quote-dot"></div><div><b>Parent Voice</b><span>Reserved</span></div></div></div>
+      <div class="glass quote-card reveal"><span class="mark">"</span><p>This space is reserved for an alumni story once our first cohort graduates.</p><div class="quote-who"><div class="quote-dot"></div><div><b>Alumni Voice</b><span>Reserved</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section class="pad-sm" id="gallery" style="background:var(--bg-alt);">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Gallery</div>
+      <h2 class="display">Campus life, as it happens</h2>
+    </div>
+    <div class="gal-grid">
+      <div class="gal-item big reveal"><span>Classroom</span></div>
+      <div class="gal-item reveal"><span>Science Fair</span></div>
+      <div class="gal-item reveal"><span>Sports</span></div>
+      <div class="gal-item reveal"><span>Cultural Program</span></div>
+      <div class="gal-item reveal"><span>Debate</span></div>
+      <div class="gal-item reveal"><span>Study Tour</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="pad" id="faq">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">FAQ</div>
+      <h2 class="display">Common questions</h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <div class="faq-q">Which institution opens first? <span class="faq-plus">+</span></div>
+        <div class="faq-a"><p>Harika Laboratory School and Harika Edusphere are scheduled to open in 2027, followed by Harika Univision and Harika Career Edge in 2028, and Harika Laboratory College in 2029.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can I apply to more than one institution? <span class="faq-plus">+</span></div>
+        <div class="faq-a"><p>Yes. Because all five institutions share one ecosystem, students are encouraged to plan a pathway across multiple stages of the academy.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Is scholarship support available? <span class="faq-plus">+</span></div>
+        <div class="faq-a"><p>Merit-based scholarships will be available at each institution. Details will be published as each admission cycle opens.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Will there be an online application system? <span class="faq-plus">+</span></div>
+        <div class="faq-a"><p>Yes. An online admission portal is part of the ecosystem roadmap, alongside a student login, parent portal, and result portal.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="pad-sm" id="contact" style="background:var(--bg-alt);">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Contact</div>
+      <h2 class="display">Let's start the conversation</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="contact-info">
+          <div class="row"><b style="width:26px;">◆</b><div><b>Address</b><span>Harika Nexus Academy Campus Office — address to be announced.</span></div></div>
+          <div class="row"><b style="width:26px;">◆</b><div><b>Phone</b><span>To be published with admission opening</span></div></div>
+          <div class="row"><b style="width:26px;">◆</b><div><b>WhatsApp</b><span>To be published with admission opening</span></div></div>
+          <div class="row"><b style="width:26px;">◆</b><div><b>Email</b><span>info@harikanexusacademy.edu (sample)</span></div></div>
+          <div class="row"><b style="width:26px;">◆</b><div><b>Working Hours</b><span>Sunday – Thursday, 9:00 AM – 5:00 PM</span></div></div>
+        </div>
+        <div class="glass map-glass" style="margin-top:24px;">Campus map will appear here once the location is finalised.</div>
+      </div>
+
+      <div class="glass form-card reveal">
+        <div class="form-row">
+          <input type="text" placeholder="Full Name">
+          <input type="text" placeholder="Phone Number">
+        </div>
+        <div class="form-row">
+          <input type="email" placeholder="Email Address">
+          <input type="text" placeholder="Institution of Interest">
+        </div>
+        <textarea placeholder="Your message"></textarea>
+        <a href="#" class="btn btn-gold" style="width:100%;justify-content:center;margin-top:18px;">Send Message</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a href="#home" class="brand">
+          <img src="assets/logo-main.webp" alt="HARIKA NEXUS ACADEMY">
+          <div class="brand-text"><b>HARIKA NEXUS</b><span>ACADEMY</span></div>
+        </a>
+        <p>An education ecosystem of five institutions — school, coaching, university guidance, career development, and college — built on one shared vision.</p>
+        <div class="newsletter">
+          <input type="email" placeholder="Your email">
+          <button>Join</button>
+        </div>
+      </div>
+      <div class="foot-col">
+        <b>Institutions</b>
+        <a href="#institutions">Laboratory School</a>
+        <a href="#institutions">Edusphere</a>
+        <a href="#institutions">Univision</a>
+        <a href="#institutions">Career Edge</a>
+        <a href="#institutions">Laboratory College</a>
+      </div>
+      <div class="foot-col">
+        <b>Quick Links</b>
+        <a href="#about">About</a>
+        <a href="#programs">Programs</a>
+        <a href="#facilities">Facilities</a>
+        <a href="#faculty">Faculty</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div class="foot-col">
+        <b>Admissions</b>
+        <a href="#admission">Admission Process</a>
+        <a href="#admission">Fees</a>
+        <a href="#admission">Apply Online</a>
+        <a href="#admission">Prospectus</a>
+      </div>
+      <div class="foot-col">
+        <b>Contact</b>
+        <a href="#contact">Campus Office</a>
+        <a href="#contact">Email Us</a>
+        <a href="#contact">WhatsApp</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Harika Nexus Academy. All rights reserved.</span>
+      <div class="social">
+        <a href="#" aria-label="Facebook">f</a>
+        <a href="#" aria-label="Instagram">ig</a>
+        <a href="#" aria-label="YouTube">yt</a>
+        <a href="#" aria-label="LinkedIn">in</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Header scroll state
+const header = document.getElementById('siteHeader');
+window.addEventListener('scroll', ()=>{
+  header.classList.toggle('scrolled', window.scrollY > 30);
+});
+
+// Mobile nav
+const burger = document.getElementById('burgerBtn');
+const mobNav = document.getElementById('mobNav');
+const mobBackdrop = document.getElementById('mobBackdrop');
+function closeMob(){ mobNav.classList.remove('open'); mobBackdrop.classList.remove('open'); }
+burger.addEventListener('click', ()=>{ mobNav.classList.add('open'); mobBackdrop.classList.add('open'); });
+mobBackdrop.addEventListener('click', closeMob);
+document.querySelectorAll('.mobile-nav a').forEach(a=>a.addEventListener('click', closeMob));
+
+// Theme toggle
+const themeToggle = document.getElementById('themeToggle');
+themeToggle.addEventListener('click', ()=>{
+  const html = document.documentElement;
+  const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  themeToggle.textContent = next === 'dark' ? '☾' : '☀';
+});
+
+// Language toggle
+const langToggle = document.getElementById('langToggle');
+langToggle.addEventListener('click', ()=>{
+  const html = document.documentElement;
+  const next = html.getAttribute('data-lang') === 'en' ? 'bn' : 'en';
+  html.setAttribute('data-lang', next);
+  langToggle.textContent = next === 'en' ? 'EN' : 'বাং';
+});
+
+// FAQ accordion
+document.querySelectorAll('.faq-item').forEach(item=>{
+  item.addEventListener('click', ()=>{
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+    if(!isOpen) item.classList.add('open');
+  });
+});
+
+// Scroll reveal
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+  });
+}, {threshold:0.12});
+revealEls.forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

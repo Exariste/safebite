@@ -141,15 +141,15 @@
     max-width:1320px; margin:0 auto; padding:0 28px;
     display:flex; align-items:center; justify-content:space-between;
   }
-  .nav-links{ display:flex; }
+  .nav-links{ display:flex; align-items:center; }
   .nav-links > li{ position:relative; }
   .nav-links > li > a{
-    display:block; padding:15px 13px; font-size:13px; font-weight:600;
-    letter-spacing:.01em; color: var(--ivory-dim); transition: color .2s; position:relative; white-space:nowrap;
+    display:block; margin:11px 3px; padding:8px 16px; font-size:14px; font-weight:800;
+    letter-spacing:0; color: #ffffff; transition: all .2s; position:relative; white-space:nowrap;
+    border-radius:7px;
   }
-  .nav-links > li > a:hover{ color: var(--gold-bright); }
-  .nav-links > li.active > a{ color: var(--gold-bright); }
-  .nav-links > li.active > a::after{ content:''; position:absolute; left:13px; right:13px; bottom:9px; height:2px; background:var(--gold); }
+  .nav-links > li > a:hover{ color: #ffffff; background: rgba(255,255,255,0.08); }
+  .nav-links > li.active > a{ color: #1a1305; background: linear-gradient(135deg, var(--gold-bright), var(--gold)); }
   .nav-links .dropdown{
     position:absolute; top:100%; left:0; min-width:250px;
     background: var(--navy-2); border:1px solid var(--line); border-radius:12px;
@@ -157,9 +157,9 @@
     transition: all .22s ease; box-shadow: 0 20px 50px rgba(0,0,0,0.5);
   }
   .nav-links > li:hover .dropdown{ opacity:1; visibility:visible; transform:translateY(0); }
-  .dropdown a{ display:flex; flex-direction:column; padding:9px 12px; border-radius:8px; font-size:13px; color:var(--ivory-dim); }
+  .dropdown a{ display:flex; flex-direction:column; padding:9px 12px; border-radius:8px; font-size:13px; color:var(--ivory-dim); font-weight:600; }
   .dropdown a:hover{ background: var(--gold-soft); color:var(--gold-bright); }
-  .dropdown a small{ font-size:11px; color:var(--ivory-faint); margin-top:1px; }
+  .dropdown a small{ font-size:11px; color:var(--ivory-faint); margin-top:1px; font-weight:500; }
   .nav-cta{ padding:12px 0; }
   .burger{ display:none; background:none; border:none; color:var(--navy-txt); font-size:22px; cursor:pointer; }
 

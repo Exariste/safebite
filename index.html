@@ -87,8 +87,8 @@
   }
   .brand{ display:flex; align-items:center; gap:13px; flex-shrink:0; }
   .brand img{ width:50px; height:50px; object-fit:contain; }
-  .brand-text .name{ font-family: var(--serif); font-weight:700; font-size:19px; letter-spacing:.01em; color:var(--navy-txt); }
-  .brand-text .tag{ font-size:10px; letter-spacing:.13em; color: var(--gold); text-transform:uppercase; margin-top:2px; font-weight:700; }
+  .brand-text .name{ font-family: var(--serif); font-weight:800; font-size:20px; letter-spacing:.005em; color:var(--navy-txt); white-space:nowrap; }
+  .brand-text .tag{ font-size:11px; letter-spacing:.1em; color: #8a6412; text-transform:uppercase; margin-top:3px; font-weight:800; white-space:nowrap; }
 
   .header-search{
     flex:1; max-width:360px; display:flex; align-items:center;
@@ -146,7 +146,7 @@
   .nav-links{ display:flex; align-items:center; }
   .nav-links > li{ position:relative; }
   .nav-links > li > a{
-    display:block; margin:6px 2px; padding:6px 15px; font-size:15.5px; font-weight:800;
+    display:block; margin:4px 2px; padding:5px 15px; font-size:15.5px; font-weight:800;
     letter-spacing:0.01em; color: #ffffff; transition: all .2s; position:relative; white-space:nowrap;
     border-radius:7px;
   }
@@ -169,32 +169,37 @@
   .dropdown a{ display:flex; flex-direction:column; padding:9px 12px; border-radius:8px; font-size:13px; color: rgba(244,241,232,0.82); font-weight:600; }
   .dropdown a:hover{ background: var(--gold-soft); color:var(--gold-bright); }
   .dropdown a small{ font-size:11px; color: rgba(244,241,232,0.58); margin-top:1px; font-weight:500; }
-  .nav-cta{ padding:8px 0; }
+  .nav-cta{ padding:6px 0; }
   .burger{ display:none; background:none; border:none; color:var(--navy-txt); font-size:22px; cursor:pointer; }
 
   /* ticker */
   .ticker-wrap{
     background: #ffffff;
-    overflow:hidden; white-space:nowrap; padding:10px 0;
-    display:flex; align-items:center; border-bottom:1px solid #ececec;
+    overflow:hidden; white-space:nowrap; padding:12px 0;
+    border-bottom:1px solid #ececec;
     box-shadow: inset 0 1px 0 rgba(16,25,51,0.04);
+  }
+  .ticker-inner{
+    max-width:1320px; margin:0 auto; padding:0 28px;
+    display:flex; align-items:center;
   }
   .ticker-badge{
     flex-shrink:0; display:flex; align-items:center; gap:6px;
     background: linear-gradient(135deg, var(--gold-bright), var(--gold));
-    color:#1a1305; font-size:10.5px; font-weight:800;
-    letter-spacing:.1em; padding:6px 14px; border-radius:999px; margin-left:20px; margin-right:18px;
+    color:#1a1305; font-size:12px; font-weight:800;
+    letter-spacing:.09em; padding:7px 16px; border-radius:999px; margin-right:22px;
     box-shadow: 0 4px 14px rgba(201,162,74,0.3);
   }
   .ticker-badge::before{ content:''; width:6px; height:6px; border-radius:50%; background:#1a1305; }
   .ticker-viewport{ overflow:hidden; flex:1; -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 24px, #000 96%, transparent 100%); mask-image: linear-gradient(90deg, transparent 0, #000 24px, #000 96%, transparent 100%); }
   .ticker-track{ display:inline-block; padding-left:100%; animation: ticker 30s linear infinite; }
-  .ticker-track span{ margin-right:56px; font-size:13px; color: var(--navy-txt); font-weight:600; letter-spacing:.01em; }
+  .ticker-track span{ margin-right:56px; font-size:15.5px; color: var(--navy-txt); font-weight:700; letter-spacing:.005em; }
   @keyframes ticker{ 0%{transform:translateX(0);} 100%{transform:translateX(-100%);} }
   @media (max-width:760px){
     .ticker-wrap{ padding:8px 0; }
-    .ticker-badge{ margin-left:14px; margin-right:12px; font-size:9.5px; padding:5px 11px; }
-    .ticker-track span{ font-size:12px; margin-right:40px; }
+    .ticker-inner{ padding:0 14px; }
+    .ticker-badge{ margin-right:12px; font-size:10.5px; padding:5px 11px; }
+    .ticker-track span{ font-size:13.5px; margin-right:40px; }
   }
 
   /* ---------- hero (dark) ---------- */
@@ -486,11 +491,12 @@
 
   /* footer (dark) */
   footer{ background:#080c17; padding:70px 28px 0; }
-  .foot-grid{ max-width:1320px; margin:0 auto; display:grid; grid-template-columns:1.15fr 0.85fr 0.85fr 1.15fr; gap:50px; padding-bottom:50px; align-items:stretch; }
+  .foot-grid{ max-width:1320px; margin:0 auto; display:grid; grid-template-columns:1.5fr 0.8fr 0.85fr 1.05fr; gap:50px; padding-bottom:50px; align-items:stretch; }
   .foot-grid > div{ display:flex; flex-direction:column; }
+  .foot-grid > div:nth-child(3){ margin-left:24px; }
   .foot-brand{ display:flex; gap:12px; align-items:center; margin-bottom:18px; }
-  .foot-brand img{ width:42px; }
-  .foot-brand .fn{ font-family:var(--serif); font-weight:700; font-size:16px; color:var(--ivory); }
+  .foot-brand img{ width:42px; flex-shrink:0; }
+  .foot-brand .fn{ font-family:var(--serif); font-weight:700; font-size:16px; color:var(--ivory); white-space:nowrap; }
   .foot-about p{ font-size:13.5px; color:var(--ivory-faint); line-height:1.85; max-width:320px; }
   .foot-social{ display:flex; gap:10px; margin-top:auto; padding-top:22px; }
   .foot-social a{
@@ -643,14 +649,16 @@
     </div>
   </nav>
   <div class="ticker-wrap">
-    <div class="ticker-badge" data-en="NEWS" data-bn="সংবাদ">NEWS</div>
-    <div class="ticker-viewport">
-      <div class="ticker-track">
-        <span data-en="🔔 Admissions open for Session 2026–2027" data-bn="🔔 ভর্তি চলছে — সেশন ২০২৬-২০২৭">🔔 Admissions open for Session 2026–2027</span>
-        <span data-en="🏆 HARIKA — five institutions, one complete Education Ecosystem" data-bn="🏆 HARIKA পাঁচটি প্রতিষ্ঠান নিয়ে একটি সম্পূর্ণ Education Ecosystem">🏆 HARIKA — five institutions, one complete Education Ecosystem</span>
-        <span data-en="📍 Panti, Kushtia — new campus opening soon" data-bn="📍 পান্টি, কুষ্টিয়া — নতুন ক্যাম্পাস উদ্বোধন শীঘ্রই">📍 Panti, Kushtia — new campus opening soon</span>
-        <span data-en="💡 Scholarship test registration now open" data-bn="💡 বৃত্তি পরীক্ষা নিবন্ধন এখন উন্মুক্ত">💡 Scholarship test registration now open</span>
-        <span data-en="🔔 Admissions open for Session 2026–2027" data-bn="🔔 ভর্তি চলছে — সেশন ২০২৬-২০২৭">🔔 Admissions open for Session 2026–2027</span>
+    <div class="ticker-inner">
+      <div class="ticker-badge" data-en="NEWS" data-bn="সংবাদ">NEWS</div>
+      <div class="ticker-viewport">
+        <div class="ticker-track">
+          <span data-en="🔔 Admissions open for Session 2026–2027" data-bn="🔔 ভর্তি চলছে — সেশন ২০২৬-২০২৭">🔔 Admissions open for Session 2026–2027</span>
+          <span data-en="🏆 HARIKA — five institutions, one complete Education Ecosystem" data-bn="🏆 HARIKA পাঁচটি প্রতিষ্ঠান নিয়ে একটি সম্পূর্ণ Education Ecosystem">🏆 HARIKA — five institutions, one complete Education Ecosystem</span>
+          <span data-en="📍 Panti, Kushtia — new campus opening soon" data-bn="📍 পান্টি, কুষ্টিয়া — নতুন ক্যাম্পাস উদ্বোধন শীঘ্রই">📍 Panti, Kushtia — new campus opening soon</span>
+          <span data-en="💡 Scholarship test registration now open" data-bn="💡 বৃত্তি পরীক্ষা নিবন্ধন এখন উন্মুক্ত">💡 Scholarship test registration now open</span>
+          <span data-en="🔔 Admissions open for Session 2026–2027" data-bn="🔔 ভর্তি চলছে — সেশন ২০২৬-২০২৭">🔔 Admissions open for Session 2026–2027</span>
+        </div>
       </div>
     </div>
   </div>

@@ -146,7 +146,7 @@
   .nav-links{ display:flex; align-items:center; }
   .nav-links > li{ position:relative; }
   .nav-links > li > a{
-    display:block; margin:11px 3px; padding:8px 16px; font-size:14px; font-weight:800;
+    display:block; margin:6px 2px; padding:6px 15px; font-size:15.5px; font-weight:800;
     letter-spacing:0.01em; color: #ffffff; transition: all .2s; position:relative; white-space:nowrap;
     border-radius:7px;
   }
@@ -169,15 +169,15 @@
   .dropdown a{ display:flex; flex-direction:column; padding:9px 12px; border-radius:8px; font-size:13px; color: rgba(244,241,232,0.82); font-weight:600; }
   .dropdown a:hover{ background: var(--gold-soft); color:var(--gold-bright); }
   .dropdown a small{ font-size:11px; color: rgba(244,241,232,0.58); margin-top:1px; font-weight:500; }
-  .nav-cta{ padding:12px 0; }
+  .nav-cta{ padding:8px 0; }
   .burger{ display:none; background:none; border:none; color:var(--navy-txt); font-size:22px; cursor:pointer; }
 
   /* ticker */
   .ticker-wrap{
-    background: linear-gradient(90deg, var(--navy-2), var(--ink));
+    background: #ffffff;
     overflow:hidden; white-space:nowrap; padding:10px 0;
-    display:flex; align-items:center; border-bottom:1px solid var(--line);
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
+    display:flex; align-items:center; border-bottom:1px solid #ececec;
+    box-shadow: inset 0 1px 0 rgba(16,25,51,0.04);
   }
   .ticker-badge{
     flex-shrink:0; display:flex; align-items:center; gap:6px;
@@ -189,7 +189,7 @@
   .ticker-badge::before{ content:''; width:6px; height:6px; border-radius:50%; background:#1a1305; }
   .ticker-viewport{ overflow:hidden; flex:1; -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 24px, #000 96%, transparent 100%); mask-image: linear-gradient(90deg, transparent 0, #000 24px, #000 96%, transparent 100%); }
   .ticker-track{ display:inline-block; padding-left:100%; animation: ticker 30s linear infinite; }
-  .ticker-track span{ margin-right:56px; font-size:13px; color: var(--ivory); font-weight:600; letter-spacing:.01em; }
+  .ticker-track span{ margin-right:56px; font-size:13px; color: var(--navy-txt); font-weight:600; letter-spacing:.01em; }
   @keyframes ticker{ 0%{transform:translateX(0);} 100%{transform:translateX(-100%);} }
   @media (max-width:760px){
     .ticker-wrap{ padding:8px 0; }
@@ -486,22 +486,24 @@
 
   /* footer (dark) */
   footer{ background:#080c17; padding:70px 28px 0; }
-  .foot-grid{ max-width:1320px; margin:0 auto; display:grid; grid-template-columns:1.15fr 1fr 1fr 1.1fr; gap:50px; padding-bottom:50px; }
+  .foot-grid{ max-width:1320px; margin:0 auto; display:grid; grid-template-columns:1.15fr 0.85fr 0.85fr 1.15fr; gap:50px; padding-bottom:50px; align-items:stretch; }
+  .foot-grid > div{ display:flex; flex-direction:column; }
   .foot-brand{ display:flex; gap:12px; align-items:center; margin-bottom:18px; }
   .foot-brand img{ width:42px; }
   .foot-brand .fn{ font-family:var(--serif); font-weight:700; font-size:16px; color:var(--ivory); }
   .foot-about p{ font-size:13.5px; color:var(--ivory-faint); line-height:1.85; max-width:320px; }
-  .foot-social{ display:flex; gap:10px; margin-top:22px; }
+  .foot-social{ display:flex; gap:10px; margin-top:auto; padding-top:22px; }
   .foot-social a{
     width:36px; height:36px; border-radius:9px; border:1px solid var(--line);
     display:flex; align-items:center; justify-content:center; color:var(--ivory-dim); transition: all .25s; font-size:13px;
   }
   .foot-social a:hover{ background:var(--gold); color:#0b1226; border-color:var(--gold); }
   .foot-col h5{ font-size:12.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); margin-bottom:22px; font-weight:700; }
-  .foot-col li{ margin-bottom:14px; }
+  .foot-col ul{ display:flex; flex-direction:column; flex:1; justify-content:space-between; }
+  .foot-col li{ margin-bottom:0; }
   .foot-col a{ font-size:13.5px; color:var(--ivory-dim); transition:color .2s; }
   .foot-col a:hover{ color:var(--gold-bright); }
-  .foot-contact li{ display:flex; gap:12px; margin-bottom:14px; font-size:13.5px; color:var(--ivory-dim); align-items:flex-start; }
+  .foot-contact li{ display:flex; gap:12px; font-size:13.5px; color:var(--ivory-dim); align-items:flex-start; }
   .foot-contact a{ transition: color .2s; }
   .foot-contact a:hover{ color: var(--gold-bright); }
   .foot-contact .ic{ width:28px; height:28px; border-radius:7px; background:var(--gold-soft); color:var(--gold); display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:1px; font-size:13px; }

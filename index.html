@@ -4,7 +4,6 @@
 
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<!-- HERO-BUILD-MARKER: hero-size-fix-v4-2026-07-06 (orbit 210px @360w, h1 clamp 32-42px, stats one-row) -->
 
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -214,16 +213,6 @@
     overflow:hidden; padding:80px 28px 60px;
     background: var(--ink);
   }
-  .hero-shape{
-    position:absolute; top:-10%; right:-8%; width:62%; height:130%;
-    background: linear-gradient(135deg, var(--navy-2), #16224a);
-    clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
-    opacity:.9;
-  }
-  .hero-shape::after{
-    content:''; position:absolute; inset:0;
-    background: linear-gradient(135deg, transparent 40%, rgba(201,162,74,0.12) 100%);
-  }
   .hero-particles{ position:absolute; inset:0; pointer-events:none; }
   .particle{
     position:absolute; width:4px; height:4px; border-radius:50%;
@@ -232,101 +221,64 @@
   }
   @keyframes float{ 0%,100%{ transform: translateY(0) scale(1); opacity:.3;} 50%{ transform: translateY(-38px) scale(1.4); opacity:.85;} }
 
-  .hero-inner{ position:relative; z-index:2; max-width:1320px; margin:0 auto; width:100%; display:flex; align-items:center; justify-content:space-between; gap:56px; text-align:left; }
-  .hero-content{ max-width:600px; display:flex; flex-direction:column; align-items:flex-start; flex:1 1 520px; }
-  .eyebrow{
-    display:inline-flex; align-items:center; justify-content:flex-start; gap:10px;
-    font-family:var(--sans); font-size:11.5px; letter-spacing:.28em; text-transform:uppercase;
-    color: var(--gold); margin-bottom:28px; font-weight:700;
+  /* ---------- hero orbit visual (top-right corner) ---------- */
+  .hero-orbit{
+    position:absolute; top:90px; right:70px; width:260px; height:260px; z-index:1;
   }
-  .eyebrow::before{ content:none; }
-  .hero h1{
-    font-family: var(--serif); font-weight:700; color:var(--ivory);
-    font-size: clamp(34px, 5vw, 58px); line-height:1.16; letter-spacing:-.01em;
-    text-align:left;
-  }
-  .hero h1 em{ font-style:italic; color: var(--gold-bright); font-weight:600; }
-  .hero-sub{ margin:22px 0 0; font-size:16px; color: var(--ivory-dim); max-width:520px; line-height:1.85; text-align:left; }
-  .hero-actions{ display:flex; gap:16px; margin-top:38px; flex-wrap:wrap; justify-content:flex-start; }
-
-  .hero-stats{
-    display:flex; gap:0; margin:56px 0 0; max-width:560px;
-    background:transparent; border:none; border-radius:0;
-    backdrop-filter:none; overflow:hidden; justify-content:flex-start;
-  }
-  .hero-stats .stat{ flex:0 1 auto; padding:0 28px 0 0; text-align:left; border-right:1px solid var(--line); margin-right:28px; }
-  .hero-stats .stat:last-child{ border-right:none; margin-right:0; padding-right:0; }
-  .hero-stats .num{ font-family:var(--serif); font-size:26px; color:var(--gold-bright); font-weight:700; }
-  .hero-stats .lbl{ font-size:11.5px; color: var(--ivory-faint); margin-top:4px; }
-
-  /* ---------- hero orbit visual ---------- */
-  .hero-orbit{ position:relative; width:380px; height:380px; flex-shrink:0; }
   .hero-orbit .orbit-ring{ position:absolute; top:50%; left:50%; border:1px solid var(--line); border-radius:50%; transform:translate(-50%,-50%); }
-  .hero-orbit .ring1{ width:212px; height:212px; }
-  .hero-orbit .ring2{ width:340px; height:340px; }
+  .hero-orbit .ring1{ width:146px; height:146px; }
+  .hero-orbit .ring2{ width:234px; height:234px; }
   .hero-orbit .orbit-core{
     position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
-    width:92px; height:92px; border-radius:50%;
+    width:64px; height:64px; border-radius:50%;
     background: var(--navy-glass); border:1px solid var(--line); backdrop-filter: blur(20px);
     display:flex; align-items:center; justify-content:center; z-index:4;
     box-shadow: 0 20px 44px rgba(0,0,0,0.4);
   }
-  .hero-orbit .orbit-core img{ width:56px; height:56px; object-fit:contain; }
+  .hero-orbit .orbit-core img{ width:40px; height:40px; object-fit:contain; }
   .hero-orbit .orbiter{
-    position:absolute; top:50%; left:50%; width:300px; height:300px;
-    margin:-150px 0 0 -150px; animation: orbitspin 42s linear infinite;
+    position:absolute; top:50%; left:50%; width:206px; height:206px;
+    margin:-103px 0 0 -103px; animation: orbitspin 42s linear infinite;
   }
   .hero-orbit .orbiter .chip{
-    position:absolute; top:0; left:50%; margin-left:-24px;
-    width:48px; height:48px; border-radius:50%;
+    position:absolute; top:0; left:50%; margin-left:-17px;
+    width:34px; height:34px; border-radius:50%;
     background:#fff; display:flex; align-items:center; justify-content:center;
     box-shadow:0 10px 26px rgba(0,0,0,0.35);
     animation: counterspin 42s linear infinite;
   }
-  .hero-orbit .chip img{ width:28px; height:28px; object-fit:contain; }
+  .hero-orbit .chip img{ width:20px; height:20px; object-fit:contain; }
   @keyframes orbitspin{ to{ transform: rotate(360deg); } }
   @keyframes counterspin{ to{ transform: rotate(-360deg); } }
+  @media (max-width:1180px){
+    .hero-orbit{ display:none; }
+  }
 
-  @media (max-width:980px){
-    .hero{ min-height:auto; align-items:flex-start; padding:34px 20px 64px; }
-    .hero-inner{ flex-direction:column; text-align:center; gap:22px; }
-    .hero-content{ align-items:center; max-width:520px; order:2; }
-    .hero-orbit{ order:1; width:230px; height:230px; margin:0 auto; }
-    .hero-orbit .ring1{ width:130px; height:130px; }
-    .hero-orbit .ring2{ width:208px; height:208px; }
-    .hero-orbit .orbit-core{ width:58px; height:58px; }
-    .hero-orbit .orbit-core img{ width:36px; height:36px; }
-    .hero-orbit .orbiter{ width:184px; height:184px; margin:-92px 0 0 -92px; }
-    .hero-orbit .orbiter .chip{ width:32px; height:32px; margin-left:-16px; }
-    .hero-orbit .chip img{ width:19px; height:19px; }
-    .eyebrow{ justify-content:center; font-size:12.5px; margin-bottom:18px; }
-    .hero h1{ text-align:center; font-size: clamp(32px, 9vw, 42px); }
-    .hero-sub{ text-align:center; margin:18px auto 0; font-size:16.5px; max-width:460px; }
-    .hero-actions{ justify-content:center; margin-top:30px; }
-    .hero-stats{ justify-content:center; margin:36px auto 0; }
-    .hero-stats .stat{ text-align:center; }
-    .hero-stats .num{ font-size:30px; }
+  .hero-inner{ position:relative; z-index:2; max-width:1320px; margin:0 auto; width:100%; }
+  .hero-content{ max-width:760px; }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:10px;
+    font-size:12.5px; letter-spacing:.18em; text-transform:uppercase;
+    color: var(--gold); margin-bottom:26px; font-weight:700;
   }
-  @media (max-width:480px){
-    .hero{ padding:28px 18px 56px; }
-    .hero-inner{ gap:20px; }
-    .hero-orbit{ width:210px; height:210px; }
-    .hero-orbit .ring1{ width:118px; height:118px; }
-    .hero-orbit .ring2{ width:190px; height:190px; }
-    .hero-orbit .orbit-core{ width:52px; height:52px; }
-    .hero-orbit .orbit-core img{ width:32px; height:32px; }
-    .hero-orbit .orbiter{ width:168px; height:168px; margin:-84px 0 0 -84px; }
-    .hero-orbit .orbiter .chip{ width:29px; height:29px; margin-left:-14.5px; }
-    .hero-orbit .chip img{ width:17px; height:17px; }
-    .hero-stats{ margin-top:26px; }
-    .hero-stats .stat{ padding:0 14px 0 0; margin-right:14px; }
-    .hero-stats .lbl{ font-size:10.5px; }
-    .hero-actions{ margin-top:22px; }
+  .eyebrow::before{ content:''; width:28px; height:1px; background: var(--gold); }
+  .hero h1{
+    font-family: var(--serif); font-weight:700; color:var(--ivory);
+    font-size: clamp(38px, 6vw, 66px); line-height:1.1; letter-spacing:-.01em;
   }
-  @media (max-width:380px){
-    .hero-stats{ flex-wrap:wrap; gap:16px 0; }
-    .hero-stats .stat{ padding:0 14px; flex:1 1 40%; border-right:none; margin-right:0; }
+  .hero h1 em{ font-style:italic; color: var(--gold-bright); font-weight:600; }
+  .hero-sub{ margin-top:24px; font-size:16px; color: var(--ivory-dim); max-width:560px; line-height:1.85; }
+  .hero-actions{ display:flex; gap:16px; margin-top:38px; flex-wrap:wrap; }
+
+  .hero-stats{
+    display:flex; gap:0; margin-top:60px; max-width:640px;
+    background: var(--navy-glass); border:1px solid var(--line); border-radius:20px;
+    backdrop-filter: blur(20px); overflow:hidden;
   }
+  .hero-stats .stat{ flex:1; padding:22px 20px; text-align:center; border-right:1px solid var(--line); }
+  .hero-stats .stat:last-child{ border-right:none; }
+  .hero-stats .num{ font-family:var(--serif); font-size:30px; color:var(--gold-bright); font-weight:700; }
+  .hero-stats .lbl{ font-size:12px; color: var(--ivory-faint); margin-top:4px; }
 
   .scroll-cue{
     position:absolute; bottom:28px; left:50%; transform:translateX(-50%);
@@ -657,6 +609,7 @@
     .foot-contact .ic{ display:block; margin-bottom:2px; }
     .timeline-track{ grid-template-columns:1fr 1fr; }
     .form-row{ grid-template-columns:1fr; }
+    .hero{ padding-top:110px; }
     .header-main-in{ flex-wrap:wrap; }
   }
 </style>
@@ -738,23 +691,6 @@
 </header>
 <section class="hero" id="home">
 <div class="hero-particles" id="particles"></div>
-<div class="hero-inner">
-<div class="hero-content">
-<div class="eyebrow"><span data-bn="পান্টি, কুষ্টিয়া · একাডেমিক ইকোসিস্টেম" data-en="PANTI, KUSHTIA · EDUCATION ECOSYSTEM">PANTI, KUSHTIA · EDUCATION ECOSYSTEM</span></div>
-<h1>Empowering Minds,<br/>Crafting <em>Diamonds</em></h1>
-<p class="hero-sub" data-bn="ছয়টি প্রতিষ্ঠান, একটি লক্ষ্য — জ্ঞান, চরিত্র ও উৎকর্ষের মাধ্যমে আগামীর নেতৃত্ব গড়ে তোলা। HARIKA NEXUS ACADEMY একটি সম্পূর্ণ Education Ecosystem, যেখানে স্কুল থেকে ক্যারিয়ার পর্যন্ত প্রতিটি ধাপে থাকছে আন্তর্জাতিক মানের পথচলা।" data-en="Six institutions, one purpose — building tomorrow's leaders through knowledge, character, and excellence. HARIKA NEXUS ACADEMY is a complete Education Ecosystem guiding every step from school to career.">Six institutions, one purpose — building tomorrow's leaders through knowledge, character, and excellence. HARIKA NEXUS ACADEMY is a complete Education Ecosystem guiding every step from school to career.</p>
-<div class="hero-actions">
-<a class="btn-gold" data-bn="প্রতিষ্ঠানসমূহ দেখুন" data-en="Explore Institutions" href="#institutions">Explore Institutions</a>
-<a class="btn-ghost" data-bn="আবেদন করুন" data-en="Apply Now" href="#admissions">Apply Now</a>
-<a class="btn-ghost" data-bn="ভার্চুয়াল ট্যুর" data-en="Virtual Tour" href="#gallery">Virtual Tour</a>
-</div>
-<div class="hero-stats">
-<div class="stat"><div class="num" data-bn="৬টি" data-en="6">6</div><div class="lbl" data-bn="প্রতিষ্ঠান" data-en="Institutions">Institutions</div></div>
-<div class="stat"><div class="num" data-bn="৫০০+" data-en="500+">500+</div><div class="lbl" data-bn="শিক্ষার্থী" data-en="Students">Students</div></div>
-<div class="stat"><div class="num" data-bn="৫০+" data-en="50+">50+</div><div class="lbl" data-bn="অভিজ্ঞ শিক্ষক" data-en="Expert Teachers">Expert Teachers</div></div>
-<div class="stat"><div class="num" data-bn="৯৮%" data-en="98%">98%</div><div class="lbl" data-bn="সাফল্যের হার" data-en="Success Rate">Success Rate</div></div>
-</div>
-</div>
 <div class="hero-orbit" aria-hidden="true">
 <div class="orbit-ring ring2"></div>
 <div class="orbit-ring ring1"></div>
@@ -776,6 +712,23 @@
 </div>
 <div class="orbiter" style="animation-delay:-35s;">
 <div class="chip" style="animation-delay:-35s;"><img alt="Harika Technical Institute" src="images/inst-technical.png"/></div>
+</div>
+</div>
+<div class="hero-inner">
+<div class="hero-content">
+<div class="eyebrow"><span data-bn="পান্টি, কুষ্টিয়া · একাডেমিক ইকোসিস্টেম" data-en="PANTI, KUSHTIA · EDUCATION ECOSYSTEM">PANTI, KUSHTIA · EDUCATION ECOSYSTEM</span></div>
+<h1>Empowering Minds,<br/>Crafting <em>Diamonds</em></h1>
+<p class="hero-sub" data-bn="ছয়টি প্রতিষ্ঠান, একটি লক্ষ্য — জ্ঞান, চরিত্র ও উৎকর্ষের মাধ্যমে আগামীর নেতৃত্ব গড়ে তোলা। HARIKA NEXUS ACADEMY একটি সম্পূর্ণ Education Ecosystem, যেখানে স্কুল থেকে ক্যারিয়ার পর্যন্ত প্রতিটি ধাপে থাকছে আন্তর্জাতিক মানের পথচলা।" data-en="Six institutions, one purpose — building tomorrow's leaders through knowledge, character, and excellence. HARIKA NEXUS ACADEMY is a complete Education Ecosystem guiding every step from school to career.">Six institutions, one purpose — building tomorrow's leaders through knowledge, character, and excellence. HARIKA NEXUS ACADEMY is a complete Education Ecosystem guiding every step from school to career.</p>
+<div class="hero-actions">
+<a class="btn-gold" data-bn="প্রতিষ্ঠানসমূহ দেখুন" data-en="Explore Institutions" href="#institutions">Explore Institutions</a>
+<a class="btn-ghost" data-bn="আবেদন করুন" data-en="Apply Now" href="#admissions">Apply Now</a>
+<a class="btn-ghost" data-bn="ভার্চুয়াল ট্যুর" data-en="Virtual Tour" href="#gallery">Virtual Tour</a>
+</div>
+<div class="hero-stats">
+<div class="stat"><div class="num" data-bn="৬টি" data-en="6">6</div><div class="lbl" data-bn="প্রতিষ্ঠান" data-en="Institutions">Institutions</div></div>
+<div class="stat"><div class="num" data-bn="৫০০+" data-en="500+">500+</div><div class="lbl" data-bn="শিক্ষার্থী" data-en="Students">Students</div></div>
+<div class="stat"><div class="num" data-bn="৫০+" data-en="50+">50+</div><div class="lbl" data-bn="অভিজ্ঞ শিক্ষক" data-en="Expert Teachers">Expert Teachers</div></div>
+<div class="stat"><div class="num" data-bn="৯৮%" data-en="98%">98%</div><div class="lbl" data-bn="সাফল্যের হার" data-en="Success Rate">Success Rate</div></div>
 </div>
 </div>
 </div>
@@ -1115,9 +1068,9 @@
 </div>
 <div class="gal-grid reveal">
 <div class="card-light gal-item g1" style="background:linear-gradient(135deg,#16224a,#0b1226);"><span data-bn="শ্রেণিকক্ষ শিক্ষা" data-en="Classroom Learning">Classroom Learning</span></div>
-<div class="card-light gal-item" style="background:linear-gradient(135deg,#7a5c1e,#3a2c0e);"><span data-bn="ক্রীড়া দিবস" data-en="Sports Day">Sports Day</span></div>
-<div class="card-light gal-item" style="background:linear-gradient(135deg,#0f1b38,#0b1226);"><span data-bn="সাংস্কৃতিক অনুষ্ঠান" data-en="Cultural Program">Cultural Program</span></div>
-<div class="card-light gal-item" style="background:linear-gradient(135deg,#7a5c1e,#3a2c0e);"><span data-bn="বিজ্ঞান মেলা" data-en="Science Fair">Science Fair</span></div>
+<div class="card-light gal-item" style="background:linear-gradient(135deg,#0f1b38,#0b1226);"><span data-bn="ক্রীড়া দিবস" data-en="Sports Day">Sports Day</span></div>
+<div class="card-light gal-item" style="background:linear-gradient(135deg,#16224a,#0b1226);"><span data-bn="সাংস্কৃতিক অনুষ্ঠান" data-en="Cultural Program">Cultural Program</span></div>
+<div class="card-light gal-item" style="background:linear-gradient(135deg,#0f1b38,#0b1226);"><span data-bn="বিজ্ঞান মেলা" data-en="Science Fair">Science Fair</span></div>
 <div class="card-light gal-item" style="background:linear-gradient(135deg,#16224a,#0b1226);"><span data-bn="বিতর্ক প্রতিযোগিতা" data-en="Debate Competition">Debate Competition</span></div>
 <div class="card-light gal-item g5" style="background:linear-gradient(135deg,#0f1b38,#0b1226);"><span data-bn="শিক্ষা সফর" data-en="Study Tour">Study Tour</span></div>
 </div>

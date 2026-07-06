@@ -287,20 +287,44 @@
   @keyframes counterspin{ to{ transform: rotate(-360deg); } }
 
   @media (max-width:980px){
-    .hero-inner{ flex-direction:column; text-align:center; gap:20px; }
-    .hero-content{ align-items:center; max-width:640px; }
-    .eyebrow{ justify-content:center; }
-    .hero h1{ text-align:center; }
-    .hero-sub{ text-align:center; margin-left:auto; margin-right:auto; }
-    .hero-actions{ justify-content:center; }
-    .hero-stats{ justify-content:center; margin-left:auto; margin-right:auto; }
+    .hero{ min-height:auto; align-items:flex-start; padding:34px 20px 64px; }
+    .hero-inner{ flex-direction:column; text-align:center; gap:22px; }
+    .hero-content{ align-items:center; max-width:520px; order:2; }
+    .hero-orbit{ order:1; width:230px; height:230px; margin:0 auto; }
+    .hero-orbit .ring1{ width:130px; height:130px; }
+    .hero-orbit .ring2{ width:208px; height:208px; }
+    .hero-orbit .orbit-core{ width:58px; height:58px; }
+    .hero-orbit .orbit-core img{ width:36px; height:36px; }
+    .hero-orbit .orbiter{ width:184px; height:184px; margin:-92px 0 0 -92px; }
+    .hero-orbit .orbiter .chip{ width:32px; height:32px; margin-left:-16px; }
+    .hero-orbit .chip img{ width:19px; height:19px; }
+    .eyebrow{ justify-content:center; font-size:12.5px; margin-bottom:18px; }
+    .hero h1{ text-align:center; font-size: clamp(32px, 9vw, 42px); }
+    .hero-sub{ text-align:center; margin:18px auto 0; font-size:16.5px; max-width:460px; }
+    .hero-actions{ justify-content:center; margin-top:30px; }
+    .hero-stats{ justify-content:center; margin:36px auto 0; }
     .hero-stats .stat{ text-align:center; }
-    .hero-orbit{ transform:scale(0.82); margin-top:10px; }
+    .hero-stats .num{ font-size:30px; }
   }
   @media (max-width:480px){
-    .hero-orbit{ transform:scale(0.62); margin-top:-10px; }
-    .hero-stats{ flex-wrap:wrap; gap:14px 0; }
-    .hero-stats .stat{ padding:0 16px; flex:1 1 40%; border-right:none; margin-right:0; }
+    .hero{ padding:28px 18px 56px; }
+    .hero-inner{ gap:20px; }
+    .hero-orbit{ width:210px; height:210px; }
+    .hero-orbit .ring1{ width:118px; height:118px; }
+    .hero-orbit .ring2{ width:190px; height:190px; }
+    .hero-orbit .orbit-core{ width:52px; height:52px; }
+    .hero-orbit .orbit-core img{ width:32px; height:32px; }
+    .hero-orbit .orbiter{ width:168px; height:168px; margin:-84px 0 0 -84px; }
+    .hero-orbit .orbiter .chip{ width:29px; height:29px; margin-left:-14.5px; }
+    .hero-orbit .chip img{ width:17px; height:17px; }
+    .hero-stats{ margin-top:26px; }
+    .hero-stats .stat{ padding:0 14px 0 0; margin-right:14px; }
+    .hero-stats .lbl{ font-size:10.5px; }
+    .hero-actions{ margin-top:22px; }
+  }
+  @media (max-width:380px){
+    .hero-stats{ flex-wrap:wrap; gap:16px 0; }
+    .hero-stats .stat{ padding:0 14px; flex:1 1 40%; border-right:none; margin-right:0; }
   }
 
   .scroll-cue{
@@ -632,7 +656,6 @@
     .foot-contact .ic{ display:block; margin-bottom:2px; }
     .timeline-track{ grid-template-columns:1fr 1fr; }
     .form-row{ grid-template-columns:1fr; }
-    .hero{ padding-top:110px; }
     .header-main-in{ flex-wrap:wrap; }
   }
 </style>

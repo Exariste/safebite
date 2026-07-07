@@ -251,8 +251,8 @@
   @keyframes orbitspin{ to{ transform: rotate(360deg); } }
   @keyframes counterspin{ to{ transform: rotate(-360deg); } }
   @media (max-width:1180px){
-    .hero{ align-items:flex-start; min-height:auto; padding-top:340px; }
-    .hero-orbit{ width:300px; height:300px; top:10px; right:8px; }
+    .hero{ flex-direction:column; }
+    .hero-orbit{ position:static; margin:0 auto 32px; width:300px; height:300px; }
     .hero-orbit .ring1{ width:170px; height:170px; }
     .hero-orbit .ring2{ width:270px; height:270px; }
     .hero-orbit .orbit-core{ width:79px; height:79px; }

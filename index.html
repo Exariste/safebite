@@ -250,25 +250,16 @@
   .hero-orbit .chip img{ width:20px; height:20px; object-fit:contain; }
   @keyframes orbitspin{ to{ transform: rotate(360deg); } }
   @keyframes counterspin{ to{ transform: rotate(-360deg); } }
-  @media (max-width:1180px) and (min-width:761px){
-    .hero-orbit{ width:150px; height:150px; top:26px; right:20px; }
-    .hero-orbit .ring1{ width:84px; height:84px; }
-    .hero-orbit .ring2{ width:135px; height:135px; }
-    .hero-orbit .orbit-core{ width:37px; height:37px; }
-    .hero-orbit .orbit-core img{ width:23px; height:23px; }
-    .hero-orbit .orbiter{ width:119px; height:119px; margin:-59.5px 0 0 -59.5px; }
-    .hero-orbit .orbiter .chip{ width:20px; height:20px; margin-left:-10px; }
-    .hero-orbit .chip img{ width:12px; height:12px; }
-  }
-  @media (max-width:760px){
-    .hero-orbit{ width:184px; height:184px; top:10px; right:12px; }
-    .hero-orbit .ring1{ width:104px; height:104px; }
-    .hero-orbit .ring2{ width:166px; height:166px; }
-    .hero-orbit .orbit-core{ width:48px; height:48px; }
-    .hero-orbit .orbit-core img{ width:30px; height:30px; }
-    .hero-orbit .orbiter{ width:146px; height:146px; margin:-73px 0 0 -73px; }
-    .hero-orbit .orbiter .chip{ width:26px; height:26px; margin-left:-13px; }
-    .hero-orbit .chip img{ width:16px; height:16px; }
+  @media (max-width:1180px){
+    .hero{ align-items:flex-start; min-height:auto; padding-top:280px; }
+    .hero-orbit{ width:240px; height:240px; top:10px; right:8px; }
+    .hero-orbit .ring1{ width:136px; height:136px; }
+    .hero-orbit .ring2{ width:216px; height:216px; }
+    .hero-orbit .orbit-core{ width:63px; height:63px; }
+    .hero-orbit .orbit-core img{ width:39px; height:39px; }
+    .hero-orbit .orbiter{ width:190px; height:190px; margin:-95px 0 0 -95px; }
+    .hero-orbit .orbiter .chip{ width:34px; height:34px; margin-left:-17px; }
+    .hero-orbit .chip img{ width:21px; height:21px; }
   }
 
   .hero-inner{ position:relative; z-index:2; max-width:1320px; margin:0 auto; width:100%; }
@@ -626,7 +617,7 @@
     .foot-contact .ic{ display:block; margin-bottom:2px; }
     .timeline-track{ grid-template-columns:1fr 1fr; }
     .form-row{ grid-template-columns:1fr; }
-    .hero{ padding-top:210px; }
+    .hero{ padding-top:280px; }
     .header-main-in{ flex-wrap:wrap; }
   }
 </style>

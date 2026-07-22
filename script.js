@@ -7,15 +7,6 @@
     navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
   }
 
-  // Dark mode
-  const darkToggle = document.getElementById('darkToggle');
-  if (darkToggle) {
-    darkToggle.addEventListener('click', () => {
-      document.documentElement.classList.toggle('dark');
-      darkToggle.textContent = document.documentElement.classList.contains('dark') ? '☀' : '☾';
-    });
-  }
-
   // Product details toggle
   document.querySelectorAll('.details-toggle').forEach(btn => {
     btn.addEventListener('click', () => {

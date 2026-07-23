@@ -330,12 +330,13 @@
     display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;
     padding:26px 0; font-size:.8rem; color:#C79AAE;
   }
-  .footer-bottom .links a{margin-left:16px; color:#C79AAE; text-decoration:none;}
+  .footer-bottom .links{display:flex; align-items:center; flex-wrap:wrap; gap:16px;}
+  .footer-bottom .links a{margin-left:0; color:#C79AAE; text-decoration:none;}
   .footer-bottom .links a:hover{color:var(--gold);}
-  .footer-bottom .links .dev-credit{margin-left:16px; color:#C79AAE;}
+  .footer-bottom .links .dev-credit{margin-left:0; color:#C79AAE;}
   .footer-bottom .links .dev-credit b{color:var(--gold); font-weight:600;}
   @media (max-width:940px){ .footer-grid{grid-template-columns:1fr 1fr; row-gap:36px;} }
-  @media (max-width:560px){ .footer-grid{grid-template-columns:1fr;} .footer-bottom{flex-direction:column; text-align:center;} .footer-bottom .links a{margin:0 8px;} }
+  @media (max-width:560px){ .footer-grid{grid-template-columns:1fr;} .footer-bottom{flex-direction:column; text-align:center;} .footer-bottom .links{justify-content:center;} }
 
   /* ---------- HOURS BOX (contact) ---------- */
   .hours-box{

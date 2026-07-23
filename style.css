@@ -62,20 +62,21 @@
     border-bottom:1px solid rgba(255,20,147,.2);
     transition:background .4s ease;
   }
-  nav.wrap{display:flex; align-items:center; justify-content:flex-start; gap:36px; padding:14px 26px;}
+  nav.wrap{display:flex; align-items:center; justify-content:flex-start; gap:36px; padding:14px 26px; overflow-x:auto; -webkit-overflow-scrolling:touch;}
+  nav.wrap::-webkit-scrollbar{display:none;}
 
   .brand img{width:42px; height:42px; border-radius:10px;}
   .brand{display:flex; align-items:center; gap:10px; text-decoration:none; flex:none; white-space:nowrap;}
   .brand-text{display:flex; flex-direction:column; line-height:1.1; white-space:nowrap;}
   .brand-text b{font-family:'Playfair Display'; font-size:1.15rem; color:var(--forest); letter-spacing:.5px;}
   .brand-text span{font-size:.62rem; letter-spacing:1.5px; color:var(--gold); text-transform:uppercase;}
-  .nav-links{display:flex; gap:30px; list-style:none; margin:0; padding:0;}
-  .nav-links a{text-decoration:none; font-size:.88rem; font-weight:500; color:var(--ink); position:relative; padding:4px 0;}
+  .nav-links{display:flex; gap:30px; list-style:none; margin:0; padding:0; flex:none;}
+  .nav-links a{text-decoration:none; font-size:.88rem; font-weight:500; color:var(--ink); position:relative; padding:4px 0; white-space:nowrap;}
   .nav-links a::after{content:""; position:absolute; left:0; bottom:0; width:0; height:2px; background:var(--gold); transition:width .3s ease;}
   .nav-links a:hover::after{width:100%;}
   .nav-links a.active{color:var(--forest); font-weight:700;}
   .nav-links a.active::after{width:100%;}
-  .nav-links a.nav-pill{background:var(--forest); color:#fff !important; padding:13px 26px; border-radius:999px; font-weight:700; box-shadow:0 10px 24px -8px rgba(255,20,147,.55);}
+  .nav-links a.nav-pill{background:var(--forest); color:#fff !important; padding:13px 26px; border-radius:999px; font-weight:700; box-shadow:0 10px 24px -8px rgba(255,20,147,.55); white-space:nowrap; flex:none;}
   .nav-links a.nav-pill::after{display:none;}
   .nav-links a.nav-pill:hover{background:var(--forest-deep); box-shadow:0 14px 28px -8px rgba(199,21,133,.65); transform:translateY(-2px);}
   .nav-links a.nav-pill.active{color:#fff !important;}

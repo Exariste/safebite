@@ -328,16 +328,18 @@
       </div>
       <div class="form-card reveal">
         <form id="dealerForm">
+          <input type="hidden" name="_subject" value="New dealer registration from Veloura website">
+          <input type="text" name="_honey" style="display:none">
           <div class="field-row">
-            <div class="field"><label for="dName">Full Name</label><input id="dName" type="text" placeholder="Your name" required></div>
-            <div class="field"><label for="dCompany">Company Name</label><input id="dCompany" type="text" placeholder="Business / shop name" required></div>
+            <div class="field"><label for="dName">Full Name</label><input id="dName" name="Full_Name" type="text" placeholder="Your name" required></div>
+            <div class="field"><label for="dCompany">Company Name</label><input id="dCompany" name="Company_Name" type="text" placeholder="Business / shop name" required></div>
           </div>
-          <div class="field"><label for="dAddress">Business Address</label><input id="dAddress" type="text" placeholder="District, division" required></div>
+          <div class="field"><label for="dAddress">Business Address</label><input id="dAddress" name="Business_Address" type="text" placeholder="District, division" required></div>
           <div class="field-row">
-            <div class="field"><label for="dTrade">Trade License No.</label><input id="dTrade" type="text" placeholder="Optional"></div>
-            <div class="field"><label for="dContact">Contact Number</label><input id="dContact" type="tel" placeholder="01XXXXXXXXX" required></div>
+            <div class="field"><label for="dTrade">Trade License No.</label><input id="dTrade" name="Trade_License_No" type="text" placeholder="Optional"></div>
+            <div class="field"><label for="dContact">Contact Number</label><input id="dContact" name="Contact_Number" type="tel" placeholder="01XXXXXXXXX" required></div>
           </div>
-          <div class="field"><label for="dMsg">Message</label><textarea id="dMsg" rows="3" placeholder="Tell us about your market and reach"></textarea></div>
+          <div class="field"><label for="dMsg">Message</label><textarea id="dMsg" name="Message" rows="3" placeholder="Tell us about your market and reach"></textarea></div>
           <button type="submit" class="btn btn-primary" style="width:100%;">Submit Registration</button>
           <div class="toast" id="dealerToast">Thank you! Your dealer registration has been received — our team will contact you soon.</div>
           <p class="form-note">By submitting, you agree to be contacted by Veloura's partnerships team.</p>
@@ -369,13 +371,15 @@
       </div>
       <div class="form-card reveal">
         <form id="contactForm">
+          <input type="hidden" name="_subject" value="New message from Veloura website">
+          <input type="text" name="_honey" style="display:none">
           <div class="field-row">
-            <div class="field"><label for="cName">Your Name</label><input id="cName" type="text" placeholder="Jane Doe" required></div>
-            <div class="field"><label for="cEmail">Email Address</label><input id="cEmail" type="email" placeholder="jane@example.com" required></div>
+            <div class="field"><label for="cName">Your Name</label><input id="cName" name="Name" type="text" placeholder="Jane Doe" required></div>
+            <div class="field"><label for="cEmail">Email Address</label><input id="cEmail" name="Email" type="email" placeholder="jane@example.com" required></div>
           </div>
           <div class="field">
             <label for="cTopic">How Can We Help?</label>
-            <select id="cTopic">
+            <select id="cTopic" name="Topic">
               <option>General Inquiry</option>
               <option>Product Question</option>
               <option>Wholesale / Dealer Inquiry</option>
@@ -385,17 +389,30 @@
           </div>
           <div class="field">
             <label for="cContact">Preferred Contact Method</label>
-            <select id="cContact">
+            <select id="cContact" name="Preferred_Contact_Method">
               <option>Email</option>
               <option>Phone Call</option>
               <option>WhatsApp</option>
             </select>
           </div>
-          <div class="field"><label for="cMsg">Your Message</label><textarea id="cMsg" rows="4" placeholder="Tell us about your project..." required></textarea></div>
+          <div class="field"><label for="cMsg">Your Message</label><textarea id="cMsg" name="Message" rows="4" placeholder="Tell us about your project..." required></textarea></div>
           <button type="submit" class="btn btn-primary btn-arrow" style="width:100%; justify-content:center;">Send Message &rarr;</button>
           <div class="toast" id="contactToast">Thank you! Your message has been received &mdash; our team will get back to you soon.</div>
         </form>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-banner">
+  <div class="wrap">
+    <div class="cta-copy">
+      <h2>Let's get in touch</h2>
+      <p>Questions about products, orders, or partnerships &mdash; we're here to help.</p>
+    </div>
+    <div class="cta-btns">
+      <a href="contact.html" class="btn btn-primary">Contact</a>
+      <a href="dealer.html" class="btn btn-primary">Become a Dealer</a>
     </div>
   </div>
 </section>

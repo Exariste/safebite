@@ -338,6 +338,16 @@
   .hours-box p{margin:0 0 2px;}
   .field select{cursor:pointer;}
   .btn-arrow{display:inline-flex; align-items:center; gap:8px;}
+  .cta-banner{background:var(--paper); padding:70px 0;}
+  .cta-banner .wrap{display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap;}
+  .cta-banner .cta-copy h2{margin:0 0 6px; font-size:1.7rem;}
+  .cta-banner .cta-copy p{margin:0; color:var(--ink-soft);}
+  .cta-banner .cta-btns{display:flex; gap:18px; flex-wrap:wrap;}
+  @media (max-width:640px){
+    .cta-banner .wrap{flex-direction:column; text-align:center;}
+    .cta-banner .cta-btns{justify-content:center; width:100%;}
+    .cta-banner .cta-btns .btn{flex:1; text-align:center; justify-content:center;}
+  }
 
   /* ---------- BACK TO TOP ---------- */
   .back-to-top{

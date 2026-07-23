@@ -55,13 +55,15 @@
       </div>
       <div class="form-card reveal">
         <form id="contactForm">
+          <input type="hidden" name="_subject" value="New message from Veloura website">
+          <input type="text" name="_honey" style="display:none">
           <div class="field-row">
-            <div class="field"><label for="cName">Your Name</label><input id="cName" type="text" placeholder="Jane Doe" required></div>
-            <div class="field"><label for="cEmail">Email Address</label><input id="cEmail" type="email" placeholder="jane@example.com" required></div>
+            <div class="field"><label for="cName">Your Name</label><input id="cName" name="Name" type="text" placeholder="Jane Doe" required></div>
+            <div class="field"><label for="cEmail">Email Address</label><input id="cEmail" name="Email" type="email" placeholder="jane@example.com" required></div>
           </div>
           <div class="field">
             <label for="cTopic">How Can We Help?</label>
-            <select id="cTopic">
+            <select id="cTopic" name="Topic">
               <option>General Inquiry</option>
               <option>Product Question</option>
               <option>Wholesale / Dealer Inquiry</option>
@@ -71,13 +73,13 @@
           </div>
           <div class="field">
             <label for="cContact">Preferred Contact Method</label>
-            <select id="cContact">
+            <select id="cContact" name="Preferred_Contact_Method">
               <option>Email</option>
               <option>Phone Call</option>
               <option>WhatsApp</option>
             </select>
           </div>
-          <div class="field"><label for="cMsg">Your Message</label><textarea id="cMsg" rows="4" placeholder="Tell us about your project..." required></textarea></div>
+          <div class="field"><label for="cMsg">Your Message</label><textarea id="cMsg" name="Message" rows="4" placeholder="Tell us about your project..." required></textarea></div>
           <button type="submit" class="btn btn-primary btn-arrow" style="width:100%; justify-content:center;">Send Message &rarr;</button>
           <div class="toast" id="contactToast">Thank you! Your message has been received &mdash; our team will get back to you soon.</div>
         </form>

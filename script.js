@@ -16,23 +16,44 @@
     });
   });
 
-  // Dealer form (static demo)
+  // Sends a form's data to Formsubmit.co so submissions actually arrive by email
+  function sendFormEmail(form, toastId, submitBtn) {
+    const endpoint = 'https://formsubmit.co/ajax/info@exariste.com';
+    const originalLabel = submitBtn ? submitBtn.textContent : '';
+    if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending…'; }
+    fetch(endpoint, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(form)
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error('Request failed');
+        document.getElementById(toastId).classList.add('show');
+        form.reset();
+      })
+      .catch(() => {
+        alert('Sorry, something went wrong sending your message. Please email us directly at info@exariste.com.');
+      })
+      .finally(() => {
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalLabel; }
+      });
+  }
+
+  // Dealer form
   const dealerForm = document.getElementById('dealerForm');
   if (dealerForm) {
     dealerForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      document.getElementById('dealerToast').classList.add('show');
-      e.target.reset();
+      sendFormEmail(dealerForm, 'dealerToast', dealerForm.querySelector('button[type="submit"]'));
     });
   }
 
-  // Contact form (static demo)
+  // Contact form
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      document.getElementById('contactToast').classList.add('show');
-      e.target.reset();
+      sendFormEmail(contactForm, 'contactToast', contactForm.querySelector('button[type="submit"]'));
     });
   }
 

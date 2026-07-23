@@ -57,6 +57,21 @@
     });
   }
 
+  // Order form (Shop Now)
+  const orderForm = document.getElementById('orderForm');
+  if (orderForm) {
+    const params = new URLSearchParams(window.location.search);
+    const productName = params.get('product') || '';
+    const productField = document.getElementById('oProduct');
+    const summaryName = document.getElementById('orderSummaryName');
+    if (productField) productField.value = productName;
+    if (summaryName && productName) summaryName.textContent = productName;
+    orderForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      sendFormEmail(orderForm, 'orderToast', orderForm.querySelector('button[type="submit"]'));
+    });
+  }
+
   // Reveal on scroll
   const revealEls = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver((entries) => {

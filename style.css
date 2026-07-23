@@ -367,3 +367,52 @@
   .back-to-top:hover{transform:translateY(-3px);}
 
   ::selection{background:var(--gold); color:#2A2205;}
+
+  /* ---------- PRODUCT DETAIL PAGE ---------- */
+  .pd-hero{padding:50px 0 20px;}
+  .pd-grid{display:grid; grid-template-columns:1fr 1fr; gap:54px; align-items:start;}
+  .pd-imgwrap{border-radius:22px; overflow:hidden; box-shadow:var(--shadow); aspect-ratio:1/1; background:var(--blush);}
+  .pd-imgwrap img{width:100%; height:100%; object-fit:cover; display:block;}
+  .pd-info h1{font-size:2rem; margin-bottom:6px;}
+  .pd-price-row{display:flex; align-items:baseline; gap:10px; margin:14px 0 18px;}
+  .pd-price-row .price{font-size:1.6rem;}
+  .pd-desc{font-size:.96rem; color:var(--ink-soft); margin-bottom:18px;}
+  .pd-cta-row{display:flex; gap:16px; flex-wrap:wrap; margin-top:8px;}
+  .pd-section{padding:36px 0;}
+  .pd-section h2{font-size:1.35rem; margin-bottom:16px;}
+  .benefit-list{list-style:none; margin:0 0 8px; padding:0; display:flex; flex-direction:column; gap:10px;}
+  .benefit-list li{font-size:.92rem; background:var(--paper); border-radius:12px; padding:12px 16px; box-shadow:0 6px 16px -12px rgba(0,0,0,.25);}
+  .why-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(190px,1fr)); gap:12px;}
+  .why-grid div{background:var(--sage-soft); color:var(--forest); font-weight:600; font-size:.86rem; padding:14px 16px; border-radius:12px;}
+  .how-box{background:var(--paper); border-radius:16px; padding:20px 24px; font-size:.92rem; box-shadow:0 8px 22px -16px rgba(0,0,0,.2);}
+  .caution-box{background:var(--sage-soft); border-radius:16px; padding:20px 24px; font-size:.85rem; color:var(--ink-soft);}
+  .caution-box ul{margin:8px 0 0; padding-left:18px;}
+  .caution-box li{margin-bottom:4px;}
+  @media (max-width:820px){ .pd-grid{grid-template-columns:1fr;} }
+
+  /* Floating Shop Now (bottom-right) + WhatsApp (bottom-left) on product pages */
+  .shopnow-float{
+    position:fixed; bottom:26px; right:26px; z-index:95; background:var(--gold); color:#2A2205; font-weight:700;
+    font-size:.92rem; padding:14px 22px; border-radius:999px; display:flex; align-items:center; gap:8px;
+    text-decoration:none; box-shadow:0 12px 26px -8px rgba(0,0,0,.45); transition:transform .25s ease;
+  }
+  .shopnow-float:hover{transform:translateY(-3px);}
+  .whatsapp-float-left{
+    position:fixed; bottom:26px; left:26px; width:58px; height:58px; border-radius:50%; background:#25D366;
+    display:flex; align-items:center; justify-content:center; color:#fff; font-size:1.5rem; box-shadow:0 12px 26px -8px rgba(0,0,0,.4);
+    text-decoration:none; z-index:95; animation:pulse 2.4s infinite;
+  }
+  @media (max-width:560px){
+    .shopnow-float{padding:12px 18px; font-size:.85rem;}
+    .whatsapp-float-left{width:50px; height:50px; font-size:1.3rem;}
+  }
+
+  /* Product cards used as full-card links */
+  a.product-card-link{color:inherit; text-decoration:none; display:flex; flex-direction:column;}
+  a.product-card-link:hover{color:inherit;}
+
+  /* ---------- ORDER FORM PAGE ---------- */
+  .order-summary{background:var(--sage-soft); border-radius:16px; padding:18px 22px; display:flex; align-items:center; gap:16px; margin-bottom:26px;}
+  .order-summary img{width:64px; height:64px; border-radius:12px; object-fit:cover;}
+  .order-summary b{display:block; color:var(--forest); font-family:'Playfair Display'; font-size:1.05rem;}
+  .order-summary span{font-size:.82rem; color:var(--ink-soft);}

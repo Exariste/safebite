@@ -1,3 +1,14 @@
+// ================= ACTIVE NAV LINK =================
+(function () {
+  const current = location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('nav a').forEach(a => {
+    const href = a.getAttribute('href');
+    if (!href) return;
+    const hrefFile = href.split('/').pop();
+    if (hrefFile === current) a.classList.add('active');
+  });
+})();
+
 // ================= HEADER SCROLL STATE =================
 const header = document.getElementById('siteHeader');
 const backTop = document.getElementById('backTop');
@@ -138,12 +149,51 @@ if (unitsRange && marginRange && unitsVal && marginVal && calcResult) {
   updateCalc();
 }
 
-// ================= CONTACT FORM (contact page only) =================
+// ================= CONTACT FORM (contact + home page) =================
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
-  contactForm.addEventListener('submit', (e) => {
+  const cfBtn = contactForm.querySelector('button[type="submit"]');
+  const cfMsg = document.getElementById('cfMsg');
+
+  function showFormMsg(text, type) {
+    if (!cfMsg) return;
+    cfMsg.textContent = text;
+    cfMsg.className = 'form-msg ' + type;
+    cfMsg.style.display = 'block';
+  }
+
+  contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    alert('Thanks! This is a demo form — connect it to your CRM or email service to go live.');
-    contactForm.reset();
+    const name = document.getElementById('cfName').value.trim();
+    const email = document.getElementById('cfEmail').value.trim();
+    const subject = document.getElementById('cfSubject').value.trim();
+    const message = document.getElementById('cfMessage').value.trim();
+
+    const originalText = cfBtn.textContent;
+    cfBtn.disabled = true;
+    cfBtn.textContent = 'Sending…';
+    if (cfMsg) cfMsg.style.display = 'none';
+
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/info@exariste.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          _subject: 'SparkleX Website — Contact Message',
+          'Name': name,
+          'Email': email,
+          'Subject': subject || '—',
+          'Message': message
+        })
+      });
+      if (!res.ok) throw new Error('Request failed');
+      showFormMsg('Thanks, ' + name + '! Your message has been sent — we\'ll get back to you soon.', 'success');
+      contactForm.reset();
+    } catch (err) {
+      showFormMsg('Sorry, your message could not be sent right now. Please try again or email us directly at info@exariste.com.', 'error');
+    } finally {
+      cfBtn.disabled = false;
+      cfBtn.textContent = originalText;
+    }
   });
 }

@@ -68,9 +68,8 @@
   nav a{color:#e8edf5; font-size:14.5px; font-weight:500; position:relative; padding:6px 0;}
   nav a::after{content:""; position:absolute; bottom:0; left:0; width:0; height:2px; background:var(--aqua); transition:width .3s ease;}
   nav a:hover::after{width:100%;}
-  .header-cta{display:flex; align-items:center; gap:14px; flex-shrink:0;}
+  .header-cta{display:flex; align-items:center; gap:14px; flex-shrink:0; margin-left:auto;}
   .header-cta-btn{padding:11px 22px; font-size:13.5px; white-space:nowrap;}
-  .cta-short{display:none;}
   .nav-wrap{flex-wrap:nowrap;}
   .brand{min-width:0; flex-shrink:1; overflow:hidden;}
   .brand-text{min-width:0; overflow:hidden;}
@@ -344,16 +343,13 @@
   @media (max-width:980px){
     .header-cta .icon-btn:first-child{display:none;}
     header .container{padding:0 16px;}
-    .nav-wrap{flex-wrap:wrap; row-gap:12px;}
-    nav{margin-left:0; order:3; width:100%;}
-    nav ul{flex-wrap:wrap; justify-content:center; gap:10px 22px;}
-    .header-cta{gap:8px;}
+    .nav-wrap{flex-wrap:nowrap;}
+    nav{display:none;}
+    .header-cta{gap:10px;}
     .header-cta-btn{padding:9px 14px; font-size:12px;}
-    .cta-full{display:none;}
-    .cta-short{display:inline;}
     .brand img{width:34px; height:34px;}
     .brand-text b{font-size:15px;}
-    .burger{display:none;}
+    .burger{display:flex;}
     .hero-grid{max-width:100%;}
     .stat-row{grid-template-columns:repeat(2,1fr);}
     .timeline{grid-template-columns:1fr 1fr; row-gap:50px;}
@@ -375,7 +371,9 @@
     .foot-col h5{font-size:11px;}
     nav ul{gap:8px 14px;}
     nav a{font-size:13px;}
-    .brand-text span{font-size:9px;}
+    .brand-text span{display:none;}
+    .header-cta{gap:6px;}
+    .header-cta-btn{padding:8px 10px; font-size:10.5px;}
   }
 
   /* ---------- PAGE HEADER (inner page banner) ---------- */

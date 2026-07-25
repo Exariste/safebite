@@ -31,15 +31,15 @@ if (burger && mobileMenu) {
 // ================= FLOATING BUBBLES (hero only) =================
 const bubbleContainer = document.getElementById('bubbles');
 if (bubbleContainer) {
-  for (let i = 0; i < 24; i++) {
+  for (let i = 0; i < 26; i++) {
     const b = document.createElement('div');
     b.className = 'bubble';
-    const size = 6 + Math.random() * 26;
+    const size = 24 + Math.random() * 170;
     b.style.width = size + 'px';
     b.style.height = size + 'px';
     b.style.left = Math.random() * 100 + '%';
-    b.style.animationDuration = (10 + Math.random() * 14) + 's';
-    b.style.animationDelay = (Math.random() * 14) + 's';
+    b.style.animationDuration = (14 + Math.random() * 18) + 's';
+    b.style.animationDelay = (Math.random() * 18 - 18) + 's';
     bubbleContainer.appendChild(b);
   }
 }

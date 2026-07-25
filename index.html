@@ -59,6 +59,11 @@
       </div>
       <p style="font-size:11px; color:#7d8ba8; margin-top:10px;">*Per formula lab testing, when used as directed.</p>
     </div>
+    <div class="hero-visual reveal in">
+      <div class="hero-ring"></div>
+      <img src="images/img1.jpg" alt="SparkleX logo" class="hero-badge">
+      <img src="images/img3.jpg" alt="SparkleX Washing Powder">
+    </div>
       </div>
   <div class="scroll-cue"><span>SCROLL</span><div class="line"></div></div>
 </section>
@@ -425,22 +430,23 @@
         <div class="form-row">
           <div class="form-group">
             <label>Your Name</label>
-            <input type="text" placeholder="Ohid Zaman" required>
+            <input type="text" id="cfName" placeholder="Ohid Zaman" required>
           </div>
           <div class="form-group">
             <label>Email Address</label>
-            <input type="email" placeholder="zaman@example.com" required>
+            <input type="email" id="cfEmail" placeholder="zaman@example.com" required>
           </div>
         </div>
         <div class="form-group">
           <label>Subject</label>
-          <input type="text" placeholder="How can we help?">
+          <input type="text" id="cfSubject" placeholder="How can we help?">
         </div>
         <div class="form-group">
           <label>Your Message</label>
-          <textarea rows="5" placeholder="Tell us more........" required></textarea>
+          <textarea rows="5" id="cfMessage" placeholder="Tell us more........" required></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Send Message →</button>
+        <div id="cfMsg" class="form-msg" style="display:none;"></div>
       </form>
     </div>
   </div>

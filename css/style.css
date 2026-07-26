@@ -87,7 +87,7 @@
       radial-gradient(ellipse at 20% 20%, rgba(0,153,255,.4), transparent 55%),
       radial-gradient(ellipse at 80% 10%, rgba(0,102,204,.3), transparent 50%),
       linear-gradient(100deg, rgba(4,40,74,.55) 0%, rgba(6,60,102,.42) 38%, rgba(6,60,102,.26) 68%, rgba(6,60,102,.12) 100%),
-      url("images/hero-bg.jpg") center 30%/cover no-repeat;
+      url("../images/hero-bg.jpg") center 30%/cover no-repeat;
     padding:140px 0 100px;
     filter:brightness(1.12) saturate(1.2) contrast(1.03);
   }

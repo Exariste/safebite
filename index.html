@@ -352,14 +352,14 @@
   /* trust pillars */
   .pillars-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-top:56px; }
   .pillar-card{ padding:30px 22px; text-align:center; }
-  .pillar-card .ic{ width:52px; height:52px; margin:0 auto 18px; border-radius:14px; background:#101d3d; display:flex; align-items:center; justify-content:center; font-size:22px; }
+  .pillar-card .ic{ width:52px; height:52px; margin:0 auto 18px; border-radius:14px; background:var(--gold-soft); border:1px solid rgba(201,162,74,0.35); display:flex; align-items:center; justify-content:center; color:var(--gold-bright); font-size:22px; }
   .pillar-card h4{ font-family:var(--serif); font-size:16px; color:var(--ivory); margin-bottom:8px; font-weight:700; }
   .pillar-card p{ font-size:12.5px; color:var(--ivory-faint); line-height:1.75; }
 
   /* vision mission values */
   .vmv-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:56px; }
   .vmv-card{ padding:28px; }
-  .vmv-card .ic{ width:46px; height:46px; border-radius:12px; background:#101d3d; display:flex; align-items:center; justify-content:center; color:var(--gold-bright); margin-bottom:16px; font-size:19px; }
+  .vmv-card .ic{ width:46px; height:46px; border-radius:12px; background:var(--gold-soft); border:1px solid rgba(201,162,74,0.35); display:flex; align-items:center; justify-content:center; color:var(--gold-bright); margin-bottom:16px; font-size:19px; }
   .vmv-card h4{ font-family:var(--serif); font-size:18px; color:var(--ivory); margin-bottom:8px; }
   .vmv-card p{ font-size:13.5px; color:var(--ivory-faint); line-height:1.8; }
 
@@ -405,13 +405,13 @@
   /* ---------- facilities ---------- */
   .fac-grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:18px; }
   .fac-item{ padding:26px 16px; text-align:center; }
-  .fac-item .ic{ width:50px; height:50px; margin:0 auto 14px; border-radius:14px; background:#101d3d; display:flex; align-items:center; justify-content:center; font-size:21px; }
+  .fac-item .ic{ width:50px; height:50px; margin:0 auto 14px; border-radius:14px; background:var(--gold-soft); border:1px solid rgba(201,162,74,0.35); display:flex; align-items:center; justify-content:center; color:var(--gold-bright); font-size:21px; }
   .fac-item span{ font-size:13px; color:var(--ivory); font-weight:700; }
 
   /* ---------- why choose ---------- */
   .why-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
   .why-card{ padding:30px 24px; }
-  .why-card .ic{ width:46px; height:46px; border-radius:12px; background:#101d3d; display:flex; align-items:center; justify-content:center; margin-bottom:18px; font-size:19px; }
+  .why-card .ic{ width:46px; height:46px; border-radius:12px; background:var(--gold-soft); border:1px solid rgba(201,162,74,0.35); display:flex; align-items:center; justify-content:center; color:var(--gold-bright); margin-bottom:18px; font-size:19px; }
   .why-card h4{ font-family:var(--serif); font-size:17px; color:var(--ivory); margin-bottom:8px; }
   .why-card p{ font-size:13px; color:var(--ivory-faint); line-height:1.75; }
 
@@ -490,7 +490,7 @@
   /* contact */
   .contact-grid{ display:grid; grid-template-columns:1fr 1fr; gap:50px; }
   .contact-info-card{ padding:26px; display:flex; gap:16px; align-items:flex-start; margin-bottom:16px; }
-  .contact-info-card .ic{ width:42px; height:42px; border-radius:12px; background:#101d3d; color:var(--gold-bright); display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:18px; }
+  .contact-info-card .ic{ width:42px; height:42px; border-radius:12px; background:var(--gold-soft); border:1px solid rgba(201,162,74,0.35); color:var(--gold-bright); display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:18px; }
   .contact-info-card h5{ font-size:12.5px; color:var(--ivory-faint); margin-bottom:4px; }
   .contact-info-card p{ font-size:14.5px; color:var(--ivory); font-weight:700; }
 
@@ -1162,7 +1162,7 @@
 </div>
 <div class="contact-grid">
 <div class="reveal">
-<a class="glass-info-card" href="https://www.google.com/maps?q=Panti,Kushtia,Bangladesh" style="--ic-bg:rgba(219,84,66,0.16); --ic-color:#e8735f;" target="_blank">
+<a class="glass-info-card" href="https://www.google.com/maps?q=Panti,Kushtia,Bangladesh" style="--ic-bg:rgba(201,162,74,0.16); --ic-color:var(--gold-bright);" target="_blank">
 <div class="ic">📍</div>
 <div><h5 data-bn="ঠিকানা" data-en="Address">Address</h5><p>Panti, Kushtia, Bangladesh</p></div>
 </a>
@@ -1170,11 +1170,11 @@
 <div class="ic">📧</div>
 <div><h5 data-bn="ইমেইল" data-en="Email">Email</h5><p>harika@exariste.com</p></div>
 </a>
-<a class="glass-info-card" href="tel:+8801713366224" style="--ic-bg:rgba(88,166,225,0.16); --ic-color:#7db8ea;">
+<a class="glass-info-card" href="tel:+8801713366224" style="--ic-bg:rgba(201,162,74,0.16); --ic-color:var(--gold-bright);">
 <div class="ic">📞</div>
 <div><h5 data-bn="ফোন" data-en="Phone">Phone</h5><p>+880 1713-366224</p></div>
 </a>
-<a class="glass-info-card" href="https://wa.me/8801713366224" style="--ic-bg:rgba(37,211,102,0.16); --ic-color:#4fda85;" target="_blank">
+<a class="glass-info-card" href="https://wa.me/8801713366224" style="--ic-bg:rgba(201,162,74,0.16); --ic-color:var(--gold-bright);" target="_blank">
 <div class="ic">💬</div>
 <div><h5>WhatsApp</h5><p>+880 1713-366224</p></div>
 </a>
